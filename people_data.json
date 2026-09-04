@@ -8,7 +8,7 @@
         {
           "id": "01",
           "name": "IMi 最熟悉的陌生人",
-          "avatar": "01_Person Materials/Chapter01/01_陌生人/01_陌生人_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter01/01_陌生人/01_陌生人_Avatar.webp",
           "sentence": "在小小的花园里面挖呀挖呀挖",
           "message": "测试寄语：希望你新的一岁也能一直做喜欢的事情。",
           "voice": "01_Person Materials/Chapter01/01_陌生人/01_陌生人_Voice.m4a"
@@ -16,7 +16,7 @@
         {
           "id": "02",
           "name": "纸叔",
-          "avatar": "01_Person Materials/Chapter01/02_纸叔/02_纸叔_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter01/02_纸叔/02_纸叔_Avatar.webp",
           "sentence": "齐门双侯长为左，寄之厚望盼登峰",
           "message": "测试寄语：希望你新的一岁也能一直做喜欢的事情。",
           "voice": "01_Person Materials/Chapter01/02_纸叔/02_纸叔_Voice.m4a"
@@ -24,7 +24,7 @@
         {
           "id": "03",
           "name": "孤影",
-          "avatar": "01_Person Materials/Chapter01/03_孤影/03_孤影_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter01/03_孤影/03_孤影_Avatar.webp",
           "sentence": "孤帆远影碧空尽，唯见长江天际流。",
           "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
           "voice": "01_Person Materials/Chapter01/03_孤影/03_孤影_Voice.m4a"
@@ -32,7 +32,7 @@
         {
           "id": "04",
           "name": "七宝",
-          "avatar": "01_Person Materials/Chapter01/04_七宝/04_七宝_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter01/04_七宝/04_七宝_Avatar.webp",
           "sentence": "一个会说话的星星人，两颗会 “心动” 的心",
           "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
           "voice": "01_Person Materials/Chapter01/04_七宝/04_七宝_Voice.m4a"
@@ -40,7 +40,7 @@
         {
           "id": "05",
           "name": "走灬过",
-          "avatar": "01_Person Materials/Chapter01/05_走过/05_走过_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter01/05_走过/05_走过_Avatar.webp",
           "sentence": "我本善良",
           "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
           "voice": "01_Person Materials/Chapter01/05_走过/05_走过_Voice.m4a"
@@ -48,7 +48,7 @@
         {
           "id": "06",
           "name": "二月",
-          "avatar": "01_Person Materials/Chapter01/06_二月/06_二月_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter01/06_二月/06_二月_Avatar.webp",
           "sentence": "你好星星人，生日快乐",
           "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
           "voice": "01_Person Materials/Chapter01/06_二月/06_二月_Voice.m4a"
@@ -63,7 +63,7 @@
         {
           "id": "07",
           "name": "MIKEY LYFENG",
-          "avatar": "01_Person Materials/Chapter02/07_ MIKEY/07_ MIKEY_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter02/07_ MIKEY/07_ MIKEY_Avatar.webp",
           "keywords": [
             "吉他",
             "锅铲"
@@ -74,7 +74,7 @@
         {
           "id": "08",
           "name": "孤独看海的小月亮",
-          "avatar": "01_Person Materials/Chapter02/08_月亮/08_月亮_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter02/08_月亮/08_月亮_Avatar.webp",
           "keywords": [
             "德华",
             "舍得"
@@ -85,7 +85,7 @@
         {
           "id": "09",
           "name": "◕‿◕",
-          "avatar": "01_Person Materials/Chapter02/09_发糕/09_发糕_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter02/09_发糕/09_发糕_Avatar.webp",
           "keywords": [
             "上班好累",
             "上岸"
@@ -96,7 +96,7 @@
         {
           "id": "10",
           "name": "风",
-          "avatar": "01_Person Materials/Chapter02/10_风/10_风_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter02/10_风/10_风_Avatar.webp",
           "keywords": [
             "想自由",
             "乌龙"
@@ -107,7 +107,7 @@
         {
           "id": "11",
           "name": "414",
-          "avatar": "01_Person Materials/Chapter02/11_414/11_414_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter02/11_414/11_414_Avatar.webp",
           "keywords": [
             "辣条音",
             "御姐"
@@ -118,7 +118,7 @@
         {
           "id": "12",
           "name": "IMi 一只阳",
-          "avatar": "01_Person Materials/Chapter02/12_一只阳/12_一只阳_Avatar.jpg",
+          "avatar": "01_Person Materials/Chapter02/12_一只阳/12_一只阳_Avatar.webp",
           "keywords": [
             "清唱",
             "祝你们幸福"
@@ -136,8 +136,8 @@
         {
           "id": "13",
           "name": "小璐",
-          "avatar": "01_Person Materials/Chapter03/13_小璐/13_小璐_Avatar.jpg",
-          "riddleImage": "01_Person Materials/Chapter03/13_小璐/13_小璐_Clue.png",
+          "avatar": "01_Person Materials/Chapter03/13_小璐/13_小璐_Avatar.webp",
+          "riddleImage": "01_Person Materials/Chapter03/13_小璐/13_小璐_Clue.webp",
           "answers": [
             "游泳的小璐",
             "小璐",
@@ -150,8 +150,8 @@
         {
           "id": "14",
           "name": "CXM",
-          "avatar": "01_Person Materials/Chapter03/14_CXM/14_CXM_Avatar.jpg",
-          "riddleImage": "01_Person Materials/Chapter03/14_CXM/14_CXM_Clue.png",
+          "avatar": "01_Person Materials/Chapter03/14_CXM/14_CXM_Avatar.webp",
+          "riddleImage": "01_Person Materials/Chapter03/14_CXM/14_CXM_Clue.webp",
           "answers": [
             "CXM",
             "cxm"
@@ -163,8 +163,8 @@
         {
           "id": "15",
           "name": "王王王",
-          "avatar": "01_Person Materials/Chapter03/15_王王王/15_王王王_Avatar.jpg",
-          "riddleImage": "01_Person Materials/Chapter03/15_王王王/15_王王王_Clue.png",
+          "avatar": "01_Person Materials/Chapter03/15_王王王/15_王王王_Avatar.webp",
+          "riddleImage": "01_Person Materials/Chapter03/15_王王王/15_王王王_Clue.webp",
           "answers": [
             "王王王",
             "wangwangwang"
@@ -176,8 +176,8 @@
         {
           "id": "16",
           "name": "xiao 泽",
-          "avatar": "01_Person Materials/Chapter03/16_xiao 泽/16_xiao 泽_Avatar.jpg",
-          "riddleImage": "01_Person Materials/Chapter03/16_xiao 泽/16_xiao 泽_Clue.png",
+          "avatar": "01_Person Materials/Chapter03/16_xiao 泽/16_xiao 泽_Avatar.webp",
+          "riddleImage": "01_Person Materials/Chapter03/16_xiao 泽/16_xiao 泽_Clue.webp",
           "answers": [
             "xiao 泽",
             "小泽",
@@ -190,8 +190,8 @@
         {
           "id": "17",
           "name": "五花肉",
-          "avatar": "01_Person Materials/Chapter03/17_五花肉/17_五花肉_Avatar.jpg",
-          "riddleImage": "01_Person Materials/Chapter03/17_五花肉/17_五花肉_Clue.png",
+          "avatar": "01_Person Materials/Chapter03/17_五花肉/17_五花肉_Avatar.webp",
+          "riddleImage": "01_Person Materials/Chapter03/17_五花肉/17_五花肉_Clue.webp",
           "answers": [
             "五花肉",
             "肉肉"
@@ -203,8 +203,8 @@
         {
           "id": "18",
           "name": "洛奇 RockDusk",
-          "avatar": "01_Person Materials/Chapter03/18_洛奇/18_洛奇_Avatar.jpg",
-          "riddleImage": "01_Person Materials/Chapter03/18_洛奇/18_洛奇_Clue.png",
+          "avatar": "01_Person Materials/Chapter03/18_洛奇/18_洛奇_Avatar.webp",
+          "riddleImage": "01_Person Materials/Chapter03/18_洛奇/18_洛奇_Clue.webp",
           "answers": [
             "洛奇",
             "落棋"
@@ -223,48 +223,48 @@
         {
           "id": "19",
           "name": "顾念",
-          "avatar": "01_Person Materials/Chapter04/19_顾念/19_顾念_Avatar.jpg",
-          "image": "01_Person Materials/Chapter04/19_顾念/19_顾念_Clue.jpg",
+          "avatar": "01_Person Materials/Chapter04/19_顾念/19_顾念_Avatar.webp",
+          "image": "01_Person Materials/Chapter04/19_顾念/19_顾念_Clue.webp",
           "message": "测试寄语：愿时光能缓，愿故人不散。",
           "voice": "01_Person Materials/Chapter04/19_顾念/19_顾念_Voice.m4a"
         },
         {
           "id": "20",
           "name": "七零-",
-          "avatar": "01_Person Materials/Chapter04/20_七零/20_七零_Avatar.jpg",
-          "image": "01_Person Materials/Chapter04/20_七零/20_七零_Clue.jpg",
+          "avatar": "01_Person Materials/Chapter04/20_七零/20_七零_Avatar.webp",
+          "image": "01_Person Materials/Chapter04/20_七零/20_七零_Clue.webp",
           "message": "测试寄语：愿时光能缓，愿故人不散。",
           "voice": "01_Person Materials/Chapter04/20_七零/20_七零_Voice.m4a"
         },
         {
           "id": "21",
           "name": "峯 ᴵᴹⁱ",
-          "avatar": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Avatar.jpg",
-          "image": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Clue.jpg",
+          "avatar": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Avatar.webp",
+          "image": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Clue.webp",
           "message": "测试寄语：愿时光能缓，愿故人不散。",
           "voice": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Voice.m4a"
         },
         {
           "id": "22",
           "name": "少林寺驻武当山办事处大神父张喇嘛",
-          "avatar": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Avatar.jpg",
-          "image": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Clue.jpg",
+          "avatar": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Avatar.webp",
+          "image": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Clue.webp",
           "message": "测试寄语：愿时光能缓，愿故人不散。",
           "voice": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Voice.m4a"
         },
         {
           "id": "23",
           "name": "大傻",
-          "avatar": "01_Person Materials/Chapter04/23_大傻/23_大傻_Avatar.jpg",
-          "image": "01_Person Materials/Chapter04/23_大傻/23_大傻_Clue.jpg",
+          "avatar": "01_Person Materials/Chapter04/23_大傻/23_大傻_Avatar.webp",
+          "image": "01_Person Materials/Chapter04/23_大傻/23_大傻_Clue.webp",
           "message": "测试寄语：愿时光能缓，愿故人不散。",
           "voice": "01_Person Materials/Chapter04/23_大傻/23_大傻_Voice.m4a"
         },
         {
           "id": "24",
           "name": "純",
-          "avatar": "01_Person Materials/Chapter04/24_純/24_純_Avatar.jpg",
-          "image": "01_Person Materials/Chapter04/24_純/24_純_Clue.jpg",
+          "avatar": "01_Person Materials/Chapter04/24_純/24_純_Avatar.webp",
+          "image": "01_Person Materials/Chapter04/24_純/24_純_Clue.webp",
           "message": "测试寄语：愿时光能缓，愿故人不散。",
           "voice": "01_Person Materials/Chapter04/24_純/24_純_Voice.m4a"
         }
