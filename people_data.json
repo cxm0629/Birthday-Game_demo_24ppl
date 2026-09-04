@@ -10,7 +10,7 @@
           "name": "IMi 最熟悉的陌生人",
           "avatar": "01_Person Materials/Chapter01/01_陌生人/01_陌生人_Avatar.webp",
           "sentence": "在小小的花园里面挖呀挖呀挖",
-          "message": "测试寄语：希望你新的一岁也能一直做喜欢的事情。",
+          "message": "最长久的陪伴是听你、陪你、懂你！",
           "voice": "01_Person Materials/Chapter01/01_陌生人/01_陌生人_Voice.m4a"
         },
         {
@@ -26,7 +26,7 @@
           "name": "孤影",
           "avatar": "01_Person Materials/Chapter01/03_孤影/03_孤影_Avatar.webp",
           "sentence": "孤帆远影碧空尽，唯见长江天际流。",
-          "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
+          "message": "自在慵懒，岁岁欢愉，揽尽好运，百事顺心",
           "voice": "01_Person Materials/Chapter01/03_孤影/03_孤影_Voice.m4a"
         },
         {
@@ -34,7 +34,7 @@
           "name": "七宝",
           "avatar": "01_Person Materials/Chapter01/04_七宝/04_七宝_Avatar.webp",
           "sentence": "一个会说话的星星人，两颗会 “心动” 的心",
-          "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
+          "message": "好好吃饭，好好睡觉，好好生活",
           "voice": "01_Person Materials/Chapter01/04_七宝/04_七宝_Voice.m4a"
         },
         {
@@ -42,7 +42,7 @@
           "name": "走灬过",
           "avatar": "01_Person Materials/Chapter01/05_走过/05_走过_Avatar.webp",
           "sentence": "我本善良",
-          "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
+          "message": "你赖东东不错嘛",
           "voice": "01_Person Materials/Chapter01/05_走过/05_走过_Voice.m4a"
         },
         {
@@ -50,7 +50,7 @@
           "name": "二月",
           "avatar": "01_Person Materials/Chapter01/06_二月/06_二月_Avatar.webp",
           "sentence": "你好星星人，生日快乐",
-          "message": "测试寄语：生日快乐，希望今年也有很多值得开心的小事。",
+          "message": "岁岁无忧，愿暴富变美，万事称心",
           "voice": "01_Person Materials/Chapter01/06_二月/06_二月_Voice.m4a"
         }
       ]
@@ -68,7 +68,7 @@
             "吉他",
             "锅铲"
           ],
-          "message": "测试寄语：生日快乐，愿今年也有很多可爱的惊喜。",
+          "message": "有幸借你的声音，窥见无数故事的悲欢，值此生辰，愿世俗不耗你的热忱，嗓音驻清越",
           "voice": "01_Person Materials/Chapter02/07_ MIKEY/07_ MIKEY _Voice.m4a"
         },
         {
@@ -79,7 +79,7 @@
             "德华",
             "舍得"
           ],
-          "message": "测试寄语：生日快乐，愿今年也有很多可爱的惊喜。",
+          "message": "没有永远的梅雨季，只有久违的艳阳天",
           "voice": "01_Person Materials/Chapter02/08_月亮/08_月亮_Voice.m4a"
         },
         {
@@ -90,7 +90,7 @@
             "上班好累",
             "上岸"
           ],
-          "message": "测试寄语：生日快乐，愿今年也有很多可爱的惊喜。",
+          "message": "日出有盼，日落有思；平平安安，所遇皆甜",
           "voice": "01_Person Materials/Chapter02/09_发糕/09_发糕_Voice.m4a"
         },
         {
@@ -101,7 +101,7 @@
             "想自由",
             "乌龙"
           ],
-          "message": "测试寄语：生日快乐，愿今年也有很多可爱的惊喜。",
+          "message": "所幸与你相识",
           "voice": "01_Person Materials/Chapter02/10_风/10_风_Voice.m4a"
         },
         {
@@ -112,7 +112,7 @@
             "辣条音",
             "御姐"
           ],
-          "message": "测试寄语：希望新的一岁也甜甜的。",
+          "message": "无事绊心弦，所念皆如愿；风华正茂，一路向阳",
           "voice": "01_Person Materials/Chapter02/11_414/11_414_Voice.m4a"
         },
         {
@@ -123,7 +123,7 @@
             "清唱",
             "祝你们幸福"
           ],
-          "message": "测试寄语：希望新的一岁也甜甜的。",
+          "message": "韶华未央，来日可期；诸事皆喜，岁岁相依",
           "voice": "01_Person Materials/Chapter02/12_一只阳/12_一只阳_Voice.m4a"
         }
       ]
@@ -144,7 +144,7 @@
             "xiaolu"
           ],
           "hint": "不猜陆游，猜形容词",
-          "message": "测试寄语：愿你心如星辰，眼含光芒，岁岁年年皆安好。",
+          "message": "陪伴才是最长情的告白",
           "voice": "01_Person Materials/Chapter03/13_小璐/13_小璐_Voice.m4a"
         },
         {
@@ -157,7 +157,7 @@
             "cxm"
           ],
           "hint": "是三个字母",
-          "message": "测试寄语：平安喜乐，诸事顺遂。",
+          "message": "愿往后的日子，有热爱可奔赴，也有温柔常相伴",
           "voice": "01_Person Materials/Chapter03/14_CXM/14_CXM_Voice.m4a"
         },
         {
@@ -170,7 +170,7 @@
             "wangwangwang"
           ],
           "hint": "是一个姓氏",
-          "message": "测试寄语：平安喜乐，诸事顺遂。",
+          "message": "故交在天末，心知复千里",
           "voice": "01_Person Materials/Chapter03/15_王王王/15_王王王_Voice.m4a"
         },
         {
@@ -184,7 +184,7 @@
             "xiaoze"
           ],
           "hint": "跟鱼没有关系",
-          "message": "测试寄语：平安喜乐，诸事顺遂。",
+          "message": "时间从来不语，却回答了所有问题",
           "voice": "01_Person Materials/Chapter03/16_xiao 泽/16_xiao 泽_Voice.m4a"
         },
         {
@@ -197,7 +197,7 @@
             "肉肉"
           ],
           "hint": "肉的一个部位",
-          "message": "测试寄语：平安喜乐，诸事顺遂。",
+          "message": "别让忙碌偷走了你的三餐，温暖从胃开始，无论何时何地，都不要亏待自己",
           "voice": "01_Person Materials/Chapter03/17_五花肉/17_五花肉_Voice.m4a"
         },
         {
@@ -225,7 +225,7 @@
           "name": "顾念",
           "avatar": "01_Person Materials/Chapter04/19_顾念/19_顾念_Avatar.webp",
           "image": "01_Person Materials/Chapter04/19_顾念/19_顾念_Clue.webp",
-          "message": "测试寄语：愿时光能缓，愿故人不散。",
+          "message": "愿你以声为马，踏遍星海狂野，每一句念白都掷地有声",
           "voice": "01_Person Materials/Chapter04/19_顾念/19_顾念_Voice.m4a"
         },
         {
@@ -233,7 +233,7 @@
           "name": "七零-",
           "avatar": "01_Person Materials/Chapter04/20_七零/20_七零_Avatar.webp",
           "image": "01_Person Materials/Chapter04/20_七零/20_七零_Clue.webp",
-          "message": "测试寄语：愿时光能缓，愿故人不散。",
+          "message": "岁岁平安",
           "voice": "01_Person Materials/Chapter04/20_七零/20_七零_Voice.m4a"
         },
         {
@@ -241,7 +241,7 @@
           "name": "峯 ᴵᴹⁱ",
           "avatar": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Avatar.webp",
           "image": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Clue.webp",
-          "message": "测试寄语：愿时光能缓，愿故人不散。",
+          "message": "声途顺遂，岁岁欢喜",
           "voice": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Voice.m4a"
         },
         {
@@ -249,7 +249,7 @@
           "name": "少林寺驻武当山办事处大神父张喇嘛",
           "avatar": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Avatar.webp",
           "image": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Clue.webp",
-          "message": "测试寄语：愿时光能缓，愿故人不散。",
+          "message": "二π相成，事事圆满，π进好运，岁岁心安。",
           "voice": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Voice.m4a"
         },
         {
@@ -257,7 +257,7 @@
           "name": "大傻",
           "avatar": "01_Person Materials/Chapter04/23_大傻/23_大傻_Avatar.webp",
           "image": "01_Person Materials/Chapter04/23_大傻/23_大傻_Clue.webp",
-          "message": "测试寄语：愿时光能缓，愿故人不散。",
+          "message": "路可以慢慢走，饭一定要趁热吃",
           "voice": "01_Person Materials/Chapter04/23_大傻/23_大傻_Voice.m4a"
         },
         {
@@ -265,7 +265,7 @@
           "name": "純",
           "avatar": "01_Person Materials/Chapter04/24_純/24_純_Avatar.webp",
           "image": "01_Person Materials/Chapter04/24_純/24_純_Clue.webp",
-          "message": "测试寄语：愿时光能缓，愿故人不散。",
+          "message": "愿你做想做的事，去想去的地方，成为想成为的人",
           "voice": "01_Person Materials/Chapter04/24_純/24_純_Voice.m4a"
         }
       ]
