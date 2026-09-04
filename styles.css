@@ -59,3 +59,6 @@ h1{margin:0;font-family:Georgia,"Songti SC","SimSun",serif;font-weight:500;font-
 
 @media(max-width:520px){.people-six,.chapter-four-grid{grid-template-columns:1fr 1fr}.message-six{grid-template-columns:1fr}.voice-six{grid-template-columns:1fr 1fr}.intro-story{padding-left:28px;padding-right:28px}.intro-light{margin-bottom:42px}.intro-copy{min-height:104px}.ending-chibi{width:min(44vw,27vh,176px)}.ending-blessing{top:75%;max-width:15rem}.ending-controls{justify-content:center;flex-wrap:wrap}.ending-link{font-size:.72rem}}
 @media(prefers-reduced-motion:reduce){.intro-light,.intro-line,.intro-start{opacity:1;transform:none}.ending-avatar .avatar-shell{animation:none!important}.ending-chibi,.ending-blessing,.ending-ambient{transition-duration:.01ms!important}}
+
+.asset-preparing{position:fixed;z-index:50;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(21,22,19,.78);color:#d8cbb4;font-size:.85rem;letter-spacing:.04em;backdrop-filter:blur(3px)}.asset-preparing-light{width:7px;height:7px;border-radius:50%;background:#f0c270;box-shadow:0 0 12px rgba(240,194,112,.65);animation:asset-preparing-pulse 1.2s ease-in-out infinite alternate}@keyframes asset-preparing-pulse{to{opacity:.38;transform:scale(.72)}}
+@media(prefers-reduced-motion:reduce){.asset-preparing-light{animation:none!important}}
