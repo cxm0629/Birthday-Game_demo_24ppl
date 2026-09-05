@@ -6,7 +6,8 @@ const imageAssetCache=new Map();
 const ENDING_SPRITE='ending-avatar-sprite.webp',ENDING_CENTER='xiaomi-chibi-1000.webp';
 const bgmAudio=new Audio();
 bgmAudio.preload='none';bgmAudio.src=encodeURI('assets/audio/bgm.m4a');bgmAudio.loop=true;bgmAudio.volume=1;
-let bgmStarted=false,bgmGraphAttempted=false,bgmAudioContext=null,bgmSourceNode=null,bgmGainNode=null,bgmTargetGain=.16;
+const BGM_NORMAL_GAIN=.20,BGM_FADE_MS=360;
+let bgmStarted=false,bgmGraphAttempted=false,bgmAudioContext=null,bgmSourceNode=null,bgmGainNode=null,bgmTargetGain=BGM_NORMAL_GAIN,bgmPauseTimer=null;
 
 const allPeople=()=>state.data.chapters.flatMap(c=>c.people);
 const totalPeople=()=>allPeople().length;
@@ -23,8 +24,10 @@ function saveProgress(){localStorage.setItem(STORAGE_KEY,JSON.stringify({complet
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function ensureBgmAudioGraph(){if(bgmGraphAttempted)return bgmAudioContext;bgmGraphAttempted=true;const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;try{bgmAudioContext=new Context();bgmSourceNode=bgmAudioContext.createMediaElementSource(bgmAudio);bgmGainNode=bgmAudioContext.createGain();bgmGainNode.gain.value=bgmTargetGain;bgmSourceNode.connect(bgmGainNode);bgmGainNode.connect(bgmAudioContext.destination);return bgmAudioContext;}catch(_){return null;}}
 function startBgm(){if(bgmStarted)return;bgmStarted=true;const context=ensureBgmAudioGraph();if(context&&context.state!=='running'){const resumed=context.resume();if(resumed?.catch)resumed.catch(()=>{});}const playback=bgmAudio.play();if(playback?.catch)playback.catch(()=>{});}
-function transitionBgmGain(target){const unchanged=Math.abs(bgmTargetGain-target)<.001;bgmTargetGain=target;if(!bgmAudioContext||!bgmGainNode||unchanged)return;const gain=bgmGainNode.gain,now=bgmAudioContext.currentTime;if(typeof gain.cancelAndHoldAtTime==='function')gain.cancelAndHoldAtTime(now);else{const current=gain.value;gain.cancelScheduledValues(now);gain.setValueAtTime(current,now);}gain.linearRampToValueAtTime(target,now+.36);}
-function syncBgmGain(screen){if(screen==='voices')transitionBgmGain(.06);else if(screen==='select'||screen==='game'||screen==='messages')transitionBgmGain(.16);}
+function transitionBgmGain(target){const unchanged=Math.abs(bgmTargetGain-target)<.001;bgmTargetGain=target;if(!bgmAudioContext||!bgmGainNode||unchanged)return;const gain=bgmGainNode.gain,now=bgmAudioContext.currentTime;if(typeof gain.cancelAndHoldAtTime==='function')gain.cancelAndHoldAtTime(now);else{const current=gain.value;gain.cancelScheduledValues(now);gain.setValueAtTime(current,now);}gain.linearRampToValueAtTime(target,now+BGM_FADE_MS/1000);}
+function fadeOutBgmForVoice(){clearTimeout(bgmPauseTimer);transitionBgmGain(0);bgmPauseTimer=setTimeout(()=>{bgmPauseTimer=null;if(state.screen==='voices'||state.screen==='ending')bgmAudio.pause();},BGM_FADE_MS);}
+function resumeBgmForNormalScreen(){clearTimeout(bgmPauseTimer);bgmPauseTimer=null;if(bgmStarted&&bgmAudio.paused){if(bgmAudioContext&&bgmAudioContext.state!=='running'){const resumed=bgmAudioContext.resume();if(resumed?.catch)resumed.catch(()=>{});}const playback=bgmAudio.play();if(playback?.catch)playback.catch(()=>{});}transitionBgmGain(BGM_NORMAL_GAIN);}
+function syncBgmGain(screen){if(screen==='voices')fadeOutBgmForVoice();else if(screen==='select'||screen==='game'||screen==='messages')resumeBgmForNormalScreen();}
 async function bestEffortDecode(image,timeout=1200){if(typeof image.decode!=='function')return;try{await Promise.race([Promise.resolve(image.decode()).catch(()=>{}),wait(timeout)]);}catch(_){}}
 function loadAndDecodeImage(url,{loadTimeout=3000,decodeTimeout=1200}={}){if(!url)return Promise.resolve(false);const src=encodeURI(url);if(imageAssetCache.has(src))return imageAssetCache.get(src);const task=new Promise(resolve=>{const image=new Image();let finishing=false;const timer=setTimeout(()=>finish(false),loadTimeout);const finish=async ok=>{if(finishing)return;finishing=true;clearTimeout(timer);image.onload=image.onerror=null;if(ok)await bestEffortDecode(image,decodeTimeout);else image.src='';resolve(ok);};image.onload=()=>finish(true);image.onerror=()=>finish(false);image.src=src;if(image.complete)finish(image.naturalWidth>0);});imageAssetCache.set(src,task);task.then(ok=>{if(!ok&&imageAssetCache.get(src)===task)imageAssetCache.delete(src);});return task;}
 const preloadImageSet=(urls,options)=>Promise.all([...new Set(urls.filter(Boolean))].map(url=>loadAndDecodeImage(url,options)));
