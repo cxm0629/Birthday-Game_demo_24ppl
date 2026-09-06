@@ -16,7 +16,9 @@
     [246, 211, 139],
     [236, 184, 92],
     [255, 239, 196],
-    [220, 151, 75]
+    [220, 151, 75],
+    [232, 132, 62],
+    [247, 222, 168]
   ];
 
   const random = (min, max) => min + Math.random() * (max - min);
@@ -37,16 +39,19 @@
     if (!canvas || particles.length >= config.maxParticles) return;
     const width = host.clientWidth;
     const height = host.clientHeight;
-    const right = burstIndex++ % 2 === 1;
-    const x = width * (right ? random(.67, .92) : random(.08, .33));
-    const y = height * random(.12, .48);
+    const currentBurst = burstIndex++;
+    const right = currentBurst % 2 === 1;
+    const large = !config.reduced && currentBurst % 3 === 2;
+    const x = width * (right ? random(.64, .97) : random(.03, .36));
+    const y = height * random(large ? .06 : .1, large ? .36 : .5);
     const scale = Math.max(.72, Math.min(1.15, Math.min(width, height) / 700));
-    const count = Math.round(random(config.particlesMin, config.particlesMax) * (1 - progress * .28));
+    const earlyBoost = progress < .48 ? 1.14 : 1;
+    const count = Math.round(random(config.particlesMin, config.particlesMax) * earlyBoost * (large ? 1.18 : 1) * (1 - progress * .3));
     const offset = random(0, Math.PI * 2);
 
     for (let index = 0; index < count && particles.length < config.maxParticles; index++) {
       const angle = offset + (index / count) * Math.PI * 2 + random(-.055, .055);
-      const speed = random(config.speedMin, config.speedMax) * scale;
+      const speed = random(config.speedMin, config.speedMax) * scale * (large ? 1.2 : 1);
       particles.push({
         x,
         y,
@@ -105,7 +110,8 @@
     if (elapsed < config.launchUntil && now >= nextBurstAt) {
       const progress = elapsed / config.launchUntil;
       burst(progress);
-      nextBurstAt = now + random(config.intervalMin, config.intervalMax) * (1 + progress * .45);
+      const openingPace = elapsed < 2800 ? .78 : 1;
+      nextBurstAt = now + random(config.intervalMin, config.intervalMax) * openingPace * (1 + progress * .55);
     }
 
     const delta = Math.min(32, Math.max(8, now - (animate.previousTime || now - 16.7)));
@@ -132,19 +138,20 @@
     finish();
     if (!(container instanceof HTMLElement)) return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const compact = container.clientWidth < 520;
     config = reduced ? {
       reduced: true,
       duration: 3800,
       launchUntil: 2100,
-      maxParticles: 54,
-      particlesMin: 8,
-      particlesMax: 12,
+      maxParticles: 64,
+      particlesMin: 9,
+      particlesMax: 14,
       speedMin: .035,
       speedMax: .064,
       lifeMin: 900,
       lifeMax: 1300,
-      intervalMin: 650,
-      intervalMax: 820,
+      intervalMin: 520,
+      intervalMax: 700,
       gravity: .000025,
       drag: .986,
       opacity: .52
@@ -152,18 +159,18 @@
       reduced: false,
       duration: 7600,
       launchUntil: 5600,
-      maxParticles: 190,
-      particlesMin: 18,
-      particlesMax: 26,
+      maxParticles: compact ? 220 : 280,
+      particlesMin: 21,
+      particlesMax: 30,
       speedMin: .048,
       speedMax: .092,
       lifeMin: 1200,
       lifeMax: 1850,
-      intervalMin: 560,
-      intervalMax: 860,
+      intervalMin: 400,
+      intervalMax: 620,
       gravity: .000045,
       drag: .984,
-      opacity: .74
+      opacity: .78
     };
 
     host = container;
