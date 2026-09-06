@@ -42,8 +42,10 @@
     const currentBurst = burstIndex++;
     const right = currentBurst % 2 === 1;
     const large = !config.reduced && currentBurst % 3 === 2;
-    const x = width * (right ? random(.64, .97) : random(.03, .36));
-    const y = height * random(large ? .06 : .1, large ? .36 : .5);
+    const x = width * (large
+      ? (right ? random(.72, .96) : random(.04, .28))
+      : (right ? random(.64, .97) : random(.03, .36)));
+    const y = height * random(large ? .05 : .1, large ? .32 : .5);
     const scale = Math.max(.72, Math.min(1.15, Math.min(width, height) / 700));
     const earlyBoost = progress < .48 ? 1.14 : 1;
     const count = Math.round(random(config.particlesMin, config.particlesMax) * earlyBoost * (large ? 1.18 : 1) * (1 - progress * .3));
@@ -51,7 +53,8 @@
 
     for (let index = 0; index < count && particles.length < config.maxParticles; index++) {
       const angle = offset + (index / count) * Math.PI * 2 + random(-.055, .055);
-      const speed = random(config.speedMin, config.speedMax) * scale * (large ? 1.2 : 1);
+      const burstScale = large ? 1.75 : 1.42;
+      const speed = random(config.speedMin, config.speedMax) * scale * burstScale;
       particles.push({
         x,
         y,
@@ -61,7 +64,7 @@
         velocityY: Math.sin(angle) * speed,
         age: 0,
         life: random(config.lifeMin, config.lifeMax),
-        width: random(.7, 1.35),
+        width: random(.9, 1.65),
         color: colors[Math.floor(Math.random() * colors.length)]
       });
     }
@@ -80,8 +83,8 @@
     context.stroke();
 
     if (remaining > .72 && !config.reduced) {
-      context.fillStyle = `rgba(255,244,211,${alpha * .55})`;
-      context.fillRect(particle.x - .6, particle.y - .6, 1.2, 1.2);
+      context.fillStyle = `rgba(255,244,211,${alpha * .62})`;
+      context.fillRect(particle.x - .8, particle.y - .8, 1.6, 1.6);
     }
   }
 
@@ -170,7 +173,7 @@
       intervalMax: 620,
       gravity: .000045,
       drag: .984,
-      opacity: .78
+      opacity: .84
     };
 
     host = container;
