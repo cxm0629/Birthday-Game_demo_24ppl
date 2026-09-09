@@ -1,0 +1,44 @@
+/* Visual layer scoped to Opening, Chapter Select and Chapter 01. */
+body:has(.chapter-grid),body:has(.chapter-one-people){background:#102747 url('assets/pixel-ui/desktop.jpg') center center/cover fixed no-repeat}
+.intro-screen{background:linear-gradient(#071e3b44,#071e3b55),url('assets/pixel-ui/desktop.jpg') center/cover no-repeat}
+.intro-line.one{font-weight:700;color:#fff0cd;text-shadow:2px 2px 0 #493123;font-size:clamp(1rem,2.7vw,1.3rem)}
+.intro-line.two{color:#e4d9bf}
+.intro-light i{rotate:0;border-radius:0;width:9px;height:9px}
+.intro-light i:before,.intro-light i:after{border-radius:0;background:#fff2bd}
+.intro-light i:before{width:3px;height:27px}.intro-light i:after{height:3px;width:27px}
+.intro-start,.shell:has(.chapter-grid) .primary{border-radius:0;border:2px solid #ffe1a1;background:#eed096;color:#4b2a1c;font-weight:750;box-shadow:inset 0 0 0 2px #bb7e42,0 4px 0 #38221e;clip-path:polygon(6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),0 calc(100% - 3px),0 3px,6px 3px)}
+.intro-start:hover{background:#ffe1a1;color:#432719;border-color:#fff0c4}
+.intro-start:active,.shell:has(.chapter-grid) .primary:active{background:#654027;color:#ffe4ac;box-shadow:inset 0 0 0 2px #b88651}
+.shell:has(.chapter-grid){width:min(100%,680px);padding-bottom:22px}
+.shell:has(.chapter-grid) .topbar{margin-bottom:16px}
+.shell:has(.chapter-grid) .section-head{text-align:center;margin:8px 0 18px;text-shadow:2px 2px 0 #11223b}
+.shell:has(.chapter-grid) .eyebrow{font-family:"Lucida Console",Consolas,monospace;font-size:clamp(1.25rem,3vw,1.8rem);font-weight:900;letter-spacing:.045em;color:#ffe4ac}
+.shell:has(.chapter-grid) h2{font-family:inherit;font-size:1.2rem;font-weight:700;color:#fff0d1;letter-spacing:.08em}
+.shell:has(.chapter-grid) .section-head p{color:#eee0c9}
+.shell:has(.chapter-grid) .chapter-grid{width:min(100%,560px);margin:0 auto;gap:18px}
+.shell:has(.chapter-grid) .chapter-card{min-height:0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;transition:transform .18s ease,filter .18s ease}
+.chapter-cover{display:block;width:100%;height:auto;clip-path:polygon(4% 0,96% 0,96% 3%,99% 6%,99% 94%,96% 97%,96% 100%,4% 100%,4% 97%,1% 94%,1% 6%,4% 3%)}
+.shell:has(.chapter-grid) .chapter-card .number,.shell:has(.chapter-grid) .chapter-card h3,.shell:has(.chapter-grid) .chapter-card>p{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
+.shell:has(.chapter-grid) .chapter-card:after{display:none}
+.shell:has(.chapter-grid) .chapter-card.done{filter:drop-shadow(2px 0 0 #ffe1a1) drop-shadow(-2px 0 0 #ffe1a1)}
+.shell:has(.chapter-grid) .status{top:auto;bottom:7px;right:10px;background:#473023;color:#ffe4ac;border:1px solid #e0ad62;border-radius:0;font-size:.7rem}
+.shell:has(.chapter-grid) .voice-unlock:not(.ready){display:none}
+.shell:has(.chapter-grid) .voice-unlock.ready{background:#252f38;border:2px solid #bc915a;border-radius:0;box-shadow:inset 0 0 0 2px #503321;color:#f9e7c5;padding:14px}
+.shell:has(.chapter-grid) .reset-zone{margin-top:18px;padding-top:8px;border-color:#efcea33b}
+.shell:has(.chapter-grid) .reset-zone p,.shell:has(.chapter-grid) .reset-button{color:#eee0c9;text-shadow:1px 1px #152338}
+.shell:has(.chapter-grid) .progress,.shell:has(.chapter-one-people) .progress{border-radius:0;background:#172b40;color:#f7dcaa;border-color:#bd9058}
+.shell:has(.chapter-grid) .back,.shell:has(.chapter-one-people) .back{color:#f6dfb9;text-shadow:1px 1px #102039}
+.shell:has(.chapter-one-people) .section-head h2{font-family:inherit;font-weight:750;color:#fff0cc;text-shadow:2px 2px #463123}
+.shell:has(.chapter-one-people) .section-head p,.shell:has(.chapter-one-people) .subhead{color:#f3e1c2;text-shadow:1px 1px #11213a}
+.chapter-one-people .person-card,.chapter-one-sentences .sentence-card{--frame:#ad7a48;--panel:#30231e;position:relative;isolation:isolate;border-color:transparent;border-radius:0;background:transparent;box-shadow:none;color:#f4e6ce}
+.chapter-one-people .person-card:before,.chapter-one-sentences .sentence-card:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:var(--panel);border:2px solid var(--frame);box-shadow:inset 0 0 0 2px #523324;clip-path:polygon(6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),0 calc(100% - 3px),0 3px,6px 3px)}
+.chapter-one-people .person-card.selected,.chapter-one-sentences .sentence-card.selected{--frame:#fff0b2;--panel:#463323;background:transparent;box-shadow:none}
+.chapter-one-people .person-card.selected:after,.chapter-one-sentences .sentence-card.selected:after{border-radius:0;background:#604221;color:#ffeabb}
+.chapter-one-people .person-card.matched,.chapter-one-sentences .sentence-card.matched{--frame:#f3a34c;--panel:#3e2b22;background:transparent;transform:none;box-shadow:none}
+.chapter-one-people .person-card.matched:before,.chapter-one-sentences .sentence-card.matched:before{box-shadow:inset 0 0 0 2px #654024,inset 0 0 0 3px #e4b575}
+.chapter-one-sentences .sentence-card:not(:disabled):active{--panel:#e2b96e;--frame:#fff0be;color:#3a251b}
+@media(hover:hover){.shell:has(.chapter-grid) .chapter-card:hover{transform:translateY(-8px) scale(1.025);filter:brightness(1.06);box-shadow:none}.chapter-one-people .person-card:not(:disabled):hover,.chapter-one-sentences .sentence-card:not(:disabled):hover{--frame:#eac68c;transform:translateY(-2px)}}
+@media(max-width:520px){body:has(.chapter-grid),body:has(.chapter-one-people){background-image:url('assets/pixel-ui/mobile.jpg')}.intro-screen{background-image:linear-gradient(#071e3b33,#071e3b44),url('assets/pixel-ui/mobile.jpg')}.shell:has(.chapter-grid) .chapter-grid{gap:12px}.shell:has(.chapter-grid) .section-head p:last-child{font-size:.8rem}.shell:has(.chapter-grid) .eyebrow{font-size:1.3rem}.shell:has(.chapter-grid) .status{font-size:.6rem;padding:3px 5px;right:7px;bottom:5px}}
+@media(prefers-reduced-motion:reduce){.shell:has(.chapter-grid) .chapter-card{transition:none}.shell:has(.chapter-grid) .chapter-card:hover{transform:none}}
+
+@media(max-width:520px){.shell:has(.chapter-grid) .chapter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
