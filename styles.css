@@ -44,6 +44,14 @@ h1{margin:0;font-family:Georgia,"Songti SC","SimSun",serif;font-weight:500;font-
 .person-card.selected:after,.sentence-card.selected:after{background:#493820;color:#f0ca8d}
 .person-card.matched,.sentence-card.matched,.keyword.matched{border-color:rgba(145,170,149,.42);background:var(--good-soft)}
 .toast.good{color:#b9ccb9;background:var(--good-soft)}.toast.bad{color:#d7a99e;background:var(--bad-soft)}
+/* Stepped frame only; toast sizing, positioning and animation stay shared. */
+.toast{--toast-fill:#2a2924;--toast-edge:#c59b66;--toast-outline:#39231d;--toast-corners:polygon(6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);border-color:transparent;border-radius:0;box-shadow:none;isolation:isolate;filter:drop-shadow(0 2px 0 var(--toast-outline)) drop-shadow(2px 0 0 var(--toast-outline)) drop-shadow(-2px -2px 0 var(--toast-outline))}
+.toast.good{--toast-fill:var(--good-soft);--toast-edge:#e0bd82}
+.toast.bad{--toast-fill:var(--bad-soft);--toast-edge:#bd8069;--toast-outline:#40201c}
+.toast,.toast.good,.toast.bad{background:transparent}
+.toast::before,.toast::after{content:"";position:absolute;pointer-events:none;clip-path:var(--toast-corners);z-index:-1}
+.toast::before{inset:-1px;background:var(--toast-edge)}
+.toast::after{inset:1px;background:var(--toast-fill)}
 .slot{background:#2d2c27}.slot.filled{color:#b9ccb9;background:var(--good-soft)}
 .riddle-image,.image-card img{background:#1d1e1a}.answer-input{background:#20211d;color:var(--text)}.answer-input::placeholder{color:#7f786d}.hint-box{background:#292b28}
 .covered-card{background:linear-gradient(145deg,#292923,#20211d)}.covered-card.revealed,.covered-card.matched{background:var(--good-soft)}
