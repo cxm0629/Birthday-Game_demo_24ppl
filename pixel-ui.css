@@ -1,6 +1,6 @@
 /* Visual layer scoped to Opening, Chapter Select and Chapter 01. */
-body:has(.chapter-grid),body:has(.chapter-one-people){background:#102747 url('assets/pixel-ui/desktop.jpg') center center/cover fixed no-repeat}
-.intro-screen{background:linear-gradient(#071e3b44,#071e3b55),url('assets/pixel-ui/desktop.jpg') center/cover no-repeat}
+body:has(.chapter-grid),body:has(.chapter-one-people){background:#102747 url('assets/pixel-ui/pc-background.webp') center center/cover fixed no-repeat}
+.intro-screen{background:linear-gradient(#071e3b44,#071e3b55),url('assets/pixel-ui/pc-background.webp') center/cover no-repeat}
 .intro-line.one{font-weight:700;color:#fff0cd;text-shadow:2px 2px 0 #493123;font-size:clamp(1rem,2.7vw,1.3rem)}
 .intro-line.two{color:#e4d9bf}
 .intro-light i{rotate:0;border-radius:0;width:9px;height:9px}
@@ -38,7 +38,7 @@ body:has(.chapter-grid),body:has(.chapter-one-people){background:#102747 url('as
 .chapter-one-people .person-card.matched:before,.chapter-one-sentences .sentence-card.matched:before{box-shadow:inset 0 0 0 2px #654024,inset 0 0 0 3px #e4b575}
 .chapter-one-sentences .sentence-card:not(:disabled):active{--panel:#e2b96e;--frame:#fff0be;color:#3a251b}
 @media(hover:hover){.shell:has(.chapter-grid) .chapter-card:hover{transform:translateY(-8px) scale(1.025);filter:brightness(1.06);box-shadow:none}.chapter-one-people .person-card:not(:disabled):hover,.chapter-one-sentences .sentence-card:not(:disabled):hover{--frame:#eac68c;transform:translateY(-2px)}}
-@media(max-width:520px){body:has(.chapter-grid),body:has(.chapter-one-people){background-image:url('assets/pixel-ui/mobile.jpg')}.intro-screen{background-image:linear-gradient(#071e3b33,#071e3b44),url('assets/pixel-ui/mobile.jpg')}.shell:has(.chapter-grid) .chapter-grid{gap:12px}.shell:has(.chapter-grid) .section-head p:last-child{font-size:.8rem}.shell:has(.chapter-grid) .eyebrow{font-size:1.3rem}.shell:has(.chapter-grid) .status{font-size:.6rem;padding:3px 5px;right:7px;bottom:5px}}
+@media(max-width:520px){body:has(.chapter-grid),body:has(.chapter-one-people){background-image:url('assets/pixel-ui/mobile-background.webp')}.intro-screen{background-image:linear-gradient(#071e3b33,#071e3b44),url('assets/pixel-ui/mobile-background.webp')}.shell:has(.chapter-grid) .chapter-grid{gap:12px}.shell:has(.chapter-grid) .section-head p:last-child{font-size:.8rem}.shell:has(.chapter-grid) .eyebrow{font-size:1.3rem}.shell:has(.chapter-grid) .status{font-size:.6rem;padding:3px 5px;right:7px;bottom:5px}}
 @media(prefers-reduced-motion:reduce){.shell:has(.chapter-grid) .chapter-card{transition:none}.shell:has(.chapter-grid) .chapter-card:hover{transform:none}}
 
 @media(max-width:520px){.shell:has(.chapter-grid) .chapter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
