@@ -73,32 +73,32 @@ body:has(.chapter-grid),body:has(.chapter-one-people){background:#102747 url('as
 /* Matched reads as a cool, locked surface rather than another active warm card. */
 /* Compact reference frame: two continuous stepped lines, with quiet edge silhouettes. */
 .chapter-one-people .person-card:not(.matched){
- --person-edge:#b96732;--person-line:#e5b674;
+ --person-edge:#C9783E;--person-line:#F1D08B;
  border-radius:0;border-color:transparent;
  clip-path:polygon(6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .chapter-one-people .person-card:not(.matched):before{
  inset:-1px;border:0;border-radius:0;opacity:1;box-shadow:none;
- background:linear-gradient(var(--person-edge),var(--person-edge)) left 6px top 0px/calc(100% - 12px) 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 6px bottom 0px/calc(100% - 12px) 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 0px top 6px/1px calc(100% - 12px) no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 0px top 6px/1px calc(100% - 12px) no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 6px top 0px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 3px top 3px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 0px top 6px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 3px top 3px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 6px bottom 0px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 3px bottom 3px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 0px bottom 6px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) left 3px bottom 3px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 6px top 0px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 3px top 3px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 0px top 6px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 3px top 3px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 6px bottom 0px/1px 4px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 3px bottom 3px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 0px bottom 6px/4px 1px no-repeat,
- linear-gradient(var(--person-edge),var(--person-edge)) right 3px bottom 3px/1px 4px no-repeat,
+ background:linear-gradient(var(--person-edge),var(--person-edge)) left 6px top 0px/calc(100% - 12px) 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 6px bottom 0px/calc(100% - 12px) 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 0px top 6px/2px calc(100% - 12px) no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 0px top 6px/2px calc(100% - 12px) no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 6px top 0px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 3px top 3px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 0px top 6px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 3px top 3px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 6px bottom 0px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 3px bottom 3px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 0px bottom 6px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) left 3px bottom 3px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 6px top 0px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 3px top 3px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 0px top 6px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 3px top 3px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 6px bottom 0px/2px 4px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 3px bottom 3px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 0px bottom 6px/4px 2px no-repeat,
+ linear-gradient(var(--person-edge),var(--person-edge)) right 3px bottom 3px/2px 4px no-repeat,
  linear-gradient(var(--person-line),var(--person-line)) left 9px top 3px/calc(100% - 18px) 1px no-repeat,
  linear-gradient(var(--person-line),var(--person-line)) left 9px bottom 3px/calc(100% - 18px) 1px no-repeat,
  linear-gradient(var(--person-line),var(--person-line)) left 3px top 9px/1px calc(100% - 18px) no-repeat,
@@ -132,6 +132,28 @@ body:has(.chapter-grid),body:has(.chapter-one-people){background:#102747 url('as
  .chapter-one-people .person-card.selected:hover{border-color:transparent}
 }
 
+/* Shared Chapter 01 palette; decoration stays outside layout and state handling. */
+.chapter-one-people .person-card:not(.matched){
+ color:#F8E7C7;
+ background:
+ linear-gradient(#E8BE63,#E8BE63) left calc(15% - 1px) top calc(26% - 4px)/2px 8px no-repeat,
+ linear-gradient(#E8BE63,#E8BE63) left calc(15% - 4px) top calc(26% - 1px)/8px 2px no-repeat,
+ linear-gradient(#E8BE63,#E8BE63) 85% 39%/3px 3px no-repeat,
+ linear-gradient(#E8BE63b3,#E8BE63b3) 12% 69%/3px 3px no-repeat,
+ conic-gradient(from 135deg at 50% 0%,#E8BE63cc 90deg,transparent 0) left calc(87% - 3px) top calc(74% - 3px)/6px 3px no-repeat,
+ conic-gradient(from 315deg at 50% 100%,#E8BE63cc 90deg,transparent 0) left calc(87% - 3px) top 74%/6px 3px no-repeat,
+ linear-gradient(90deg,#2D15184d,transparent 18%,transparent 82%,#2D15184d),#4A221F;
+}
+.chapter-one-sentences .sentence-card:not(.matched):not(.selected){
+ --frame:#C9783E;--panel:#4A221F;color:#F8E7C7;
+}
+.chapter-one-sentences .sentence-card:not(.matched):not(.selected):after{
+ box-shadow:inset 0 0 0 1px #F1D08B;
+}
+@media(hover:hover){
+ .chapter-one-sentences .sentence-card:not(:disabled):not(.selected):hover{--frame:#efc17c}
+}
+.chapter-one-sentences .sentence-card:not(.matched):not(.selected):not(:disabled):active{--frame:#fff0ae;--panel:#e9ba68;color:#372034}
 .chapter-one-people .person-card.matched{opacity:1;cursor:default;border-color:#f2bc68;background-color:#20233f;background-image:radial-gradient(ellipse at 0% 110%,#53638b3d 0 24%,transparent 25%),radial-gradient(ellipse at 100% 115%,#69547f3b 0 30%,transparent 31%),radial-gradient(circle at 22% 17%,#e7c77d 0 1px,transparent 1.6px),linear-gradient(155deg,#171d39,#302848);box-shadow:inset 0 0 0 2px #48395e,inset 0 0 0 3px #e2a957,0 3px 4px #100d214d}
 .chapter-one-people .person-card.matched .avatar-shell{box-shadow:0 0 0 2px #e6b866,0 0 8px #efbd6254}
 .chapter-one-people .person-card.matched strong{color:#c8bfd0}
