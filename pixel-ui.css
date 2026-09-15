@@ -22,6 +22,7 @@ body{background-color:#102747;background-image:url('assets/pixel-ui/pc-backgroun
 .shell:has(.chapter-grid) .chapter-grid{width:min(100%,560px);margin:0 auto;gap:18px}
 .shell:has(.chapter-grid) .chapter-card{min-height:0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;transition:transform .18s ease,filter .18s ease}
 .chapter-cover{display:block;width:100%;height:auto;clip-path:polygon(4% 0,96% 0,96% 3%,99% 6%,99% 94%,96% 97%,96% 100%,4% 100%,4% 97%,1% 94%,1% 6%,4% 3%)}
+.chapter-cover-sprite{aspect-ratio:740/500;background-image:url('assets/pixel-ui/chapter-covers-sprite.webp');background-size:200% 200%;background-repeat:no-repeat}.chapter-cover-01{background-position:0 0}.chapter-cover-02{background-position:100% 0}.chapter-cover-03{background-position:0 100%}.chapter-cover-04{background-position:100% 100%}
 .shell:has(.chapter-grid) .chapter-card .number,.shell:has(.chapter-grid) .chapter-card h3,.shell:has(.chapter-grid) .chapter-card>p{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
 .shell:has(.chapter-grid) .chapter-card:after{display:none}
 .shell:has(.chapter-grid) .chapter-card.done{filter:drop-shadow(2px 0 0 #ffe1a1) drop-shadow(-2px 0 0 #ffe1a1)}
