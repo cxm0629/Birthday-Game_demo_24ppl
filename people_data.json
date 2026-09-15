@@ -225,6 +225,7 @@
           "name": "顾念",
           "avatar": "01_Person Materials/Chapter04/19_顾念/19_顾念_Avatar.webp",
           "image": "01_Person Materials/Chapter04/19_顾念/19_顾念_Clue.webp",
+          "imageLabel": "smile.jpg",
           "message": "愿你以声为马，踏遍星海狂野，每一句念白都掷地有声",
           "voice": "01_Person Materials/Chapter04/19_顾念/19_顾念_Voice.m4a"
         },
@@ -233,6 +234,7 @@
           "name": "七零-",
           "avatar": "01_Person Materials/Chapter04/20_七零/20_七零_Avatar.webp",
           "image": "01_Person Materials/Chapter04/20_七零/20_七零_Clue.webp",
+          "imageLabel": "portrait",
           "message": "岁岁平安",
           "voice": "01_Person Materials/Chapter04/20_七零/20_七零_Voice.m4a"
         },
@@ -241,6 +243,7 @@
           "name": "峯 ᴵᴹⁱ",
           "avatar": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Avatar.webp",
           "image": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Clue.webp",
+          "imageLabel": "hero.jpg",
           "message": "声途顺遂，岁岁欢喜",
           "voice": "01_Person Materials/Chapter04/21_峯哥/21_峯哥_Voice.m4a"
         },
@@ -249,6 +252,7 @@
           "name": "少林寺驻武当山办事处大神父张喇嘛",
           "avatar": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Avatar.webp",
           "image": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Clue.webp",
+          "imageLabel": "monk.jpg",
           "message": "二π相成，事事圆满，π进好运，岁岁心安。",
           "voice": "01_Person Materials/Chapter04/22_张大夫/22_张大夫_Voice.m4a"
         },
@@ -257,6 +261,7 @@
           "name": "大傻",
           "avatar": "01_Person Materials/Chapter04/23_大傻/23_大傻_Avatar.webp",
           "image": "01_Person Materials/Chapter04/23_大傻/23_大傻_Clue.webp",
+          "imageLabel": "yam.jpg",
           "message": "路可以慢慢走，饭一定要趁热吃",
           "voice": "01_Person Materials/Chapter04/23_大傻/23_大傻_Voice.m4a"
         },
@@ -265,6 +270,7 @@
           "name": "純",
           "avatar": "01_Person Materials/Chapter04/24_純/24_純_Avatar.webp",
           "image": "01_Person Materials/Chapter04/24_純/24_純_Clue.webp",
+          "imageLabel": "niangzi",
           "message": "愿你做想做的事，去想去的地方，成为想成为的人",
           "voice": "01_Person Materials/Chapter04/24_純/24_純_Voice.m4a"
         }
