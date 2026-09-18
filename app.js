@@ -124,7 +124,456 @@ const VOICE_STAR_PATH='M50 10Q54 10 57 17L63 31Q65 35 70 36L85 38Q92 39 88 45L77
 const VOICE_STAR_LAYOUTS={1:{desktop:[[23,27],[44,18],[66,27],[31,52],[54,48],[72,60]],mobile:[[24,15],[55,10],[72,28],[28,43],[58,50],[41,69]]},2:{desktop:[[29,20],[55,23],[72,37],[22,48],[44,61],[67,57]],mobile:[[31,12],[67,18],[47,32],[23,50],[70,54],[47,72]]},3:{desktop:[[24,32],[43,20],[64,21],[35,49],[60,48],[49,68]],mobile:[[22,20],[50,12],[72,31],[35,43],[62,54],[39,71]]},4:{desktop:[[30,19],[66,22],[22,43],[47,39],[72,49],[51,64]],mobile:[[35,13],[70,23],[24,36],[54,41],[32,59],[65,68]]}};
 function voiceVisitedForChapter(c){const visited=state.voiceVisited[c.id]||(state.voiceVisited[c.id]=new Set());c.people.forEach(p=>{if(state.heard.has(p.id))visited.add(p.id);});return visited;}
 function renderVoiceStar(p,index,chapterId,visited){const gradientId=`voice-star-gold-${chapterId}-${index}`,layout=VOICE_STAR_LAYOUTS[chapterId]||VOICE_STAR_LAYOUTS[1],[x,y]=layout.desktop[index],[mobileX,mobileY]=layout.mobile[index];return `<button type="button" class="voice-star-node voice-star-pos-${index+1}${visited.has(p.id)?' is-visited':''}${state.voiceOpening===p.id?' is-opening':''}" style="--star-x:${x}%;--star-y:${y}%;--star-mobile-x:${mobileX}%;--star-mobile-y:${mobileY}%" data-voice-star="${p.id}" aria-label="打开第 ${index+1} 颗语音星星"><svg class="voice-star-svg" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="${gradientId}" x1="22%" y1="16%" x2="78%" y2="86%"><stop stop-color="#fffce3"/><stop offset=".38" stop-color="#eee4ae"/><stop offset=".74" stop-color="#d3cea7"/><stop offset="1" stop-color="#9f965f"/></linearGradient></defs><path class="voice-star-shape" fill="url(#${gradientId})" d="${VOICE_STAR_PATH}"/><path class="voice-star-shine" d="${VOICE_STAR_PATH}"/></svg><span class="voice-star-label">STAR ${String(index+1).padStart(2,'0')}</span></button>`;}
-function voiceStarCompanion(){return `<svg class="voice-star-companion" viewBox="0 0 190 240" aria-hidden="true" focusable="false"><defs><radialGradient id="voice-companion-glow"><stop stop-color="#ffe99a" stop-opacity=".4"/><stop offset="1" stop-color="#ffe99a" stop-opacity="0"/></radialGradient><linearGradient id="voice-companion-hat" x2="0" y2="1"><stop stop-color="#ff5a31"/><stop offset="1" stop-color="#a92f29"/></linearGradient><linearGradient id="voice-companion-bow" x2="0" y2="1"><stop stop-color="#fff0a6"/><stop offset="1" stop-color="#e8b957"/></linearGradient><linearGradient id="voice-companion-body" x2="0" y2="1"><stop stop-color="#ffd85a"/><stop offset="1" stop-color="#c8862e"/></linearGradient></defs><ellipse cx="91" cy="220" rx="65" ry="12" fill="#050a12" opacity=".46"/><circle cx="166" cy="62" r="24" fill="url(#voice-companion-glow)"/><path d="M166 45 171 55 183 57 174 65 176 77 166 71 155 77 158 65 149 57 161 55Z" fill="#ffe47f" stroke="#fff2b5" stroke-width="2" stroke-linejoin="round"/><path d="M139 169 163 76" fill="none" stroke="#a76430" stroke-width="5" stroke-linecap="round"/><path d="M38 88Q19 73 27 49L47 59Z" fill="#24583b" stroke="#30251f" stroke-width="5" stroke-linejoin="round"/><path d="M43 99Q29 64 31 20 57 38 91 79L85 107Z" fill="url(#voice-companion-hat)" stroke="#30251f" stroke-width="6" stroke-linejoin="round"/><path d="M28 18 34 27 45 26 39 35 43 45 32 42 24 49 24 38 14 32 25 28Z" fill="#ffd85a" stroke="#30251f" stroke-width="4" stroke-linejoin="round"/><path d="M76 86Q51 68 30 82 47 110 78 111Z" fill="url(#voice-companion-bow)" stroke="#30251f" stroke-width="5" stroke-linejoin="round"/><path d="M87 87Q115 66 137 81 121 109 91 112Z" fill="url(#voice-companion-bow)" stroke="#30251f" stroke-width="5" stroke-linejoin="round"/><rect x="75" y="82" width="22" height="30" rx="8" fill="#ffe69a" stroke="#30251f" stroke-width="5"/><path d="M55 103Q68 89 91 94 123 96 132 121 141 149 124 172 107 193 76 184 45 175 43 140 41 116 55 103Z" fill="#ff9c73" stroke="#30251f" stroke-width="6"/><path d="M46 160Q30 188 39 218H128Q147 193 137 158 126 177 96 184 67 184 46 160Z" fill="url(#voice-companion-body)" stroke="#30251f" stroke-width="6" stroke-linejoin="round"/><path d="M128 163Q143 150 151 132" fill="none" stroke="#ffd65a" stroke-width="13" stroke-linecap="round"/><circle cx="153" cy="128" r="8" fill="#ffd65a" stroke="#30251f" stroke-width="4"/><path d="M67 126Q77 117 86 127 77 140 67 126Z" fill="#fffdf7" stroke="#30251f" stroke-width="4"/><path d="M101 124Q111 115 120 126 111 138 101 124Z" fill="#fffdf7" stroke="#30251f" stroke-width="4"/><circle cx="79" cy="128" r="4" fill="#30251f"/><circle cx="113" cy="126" r="4" fill="#30251f"/><path d="M88 153Q96 158 103 152" fill="none" stroke="#30251f" stroke-width="4" stroke-linecap="round"/><path d="M57 199 48 216M116 198 125 216" fill="none" stroke="#8b5b2c" stroke-width="5" stroke-linecap="round"/></svg>`;}
+function voiceStarCompanion(){return `<div class="voice-star-companion" aria-hidden="true"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1122 1402"
+  role="img"
+  aria-label="戴高红帽和浅黄色大蝴蝶结、举着星星魔杖的星星人"
+>
+  <defs>
+    <!-- 细小的轮廓偏移，保留原图油画棒式毛边。 -->
+    <filter id="crayon" x="-8%" y="-8%" width="116%" height="116%"
+            color-interpolation-filters="sRGB">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency=".19"
+        numOctaves="3"
+        seed="18"
+        result="edgeNoise"
+      />
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="edgeNoise"
+        scale="5.2"
+        xChannelSelector="R"
+        yChannelSelector="G"
+        result="rough"
+      />
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency=".63 .37"
+        numOctaves="3"
+        seed="7"
+        result="grain"
+      />
+      <feColorMatrix in="grain" type="matrix"
+        values="
+          0 0 0 0 .96
+          0 0 0 0 .88
+          0 0 0 0 .66
+          0 0 0 .23 0"
+        result="coloredGrain"
+      />
+      <feComposite in="coloredGrain" in2="rough" operator="in" result="clippedGrain"/>
+      <feBlend in="rough" in2="clippedGrain" mode="soft-light"/>
+    </filter>
+
+    <filter id="softBlush" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+
+    <filter id="starGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+
+    <pattern id="pastelMarks" width="71" height="59" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke-linecap="round">
+        <path d="M5 15l8 6 M36 8l5 4 M53 37l10 8 M20 47l4 3"
+              stroke="#fff3bd" stroke-width="2" opacity=".28"/>
+        <path d="M15 30l12 9 M46 19l9 8 M3 53l6 4"
+              stroke="#a65b2e" stroke-width="1.2" opacity=".12"/>
+        <path d="M30 22l3 2 M62 10l2 2 M43 51l4 2"
+              stroke="#fff9dc" stroke-width="2.6" opacity=".4"/>
+      </g>
+    </pattern>
+
+    <path id="bodyShape" d="
+      M371 765
+      C340 815 327 873 339 941
+      C352 1013 389 1051 427 1101
+      C373 1113 320 1154 271 1184
+      L246 1154
+      L260 1205
+      C276 1230 374 1236 450 1252
+      L419 1255
+      C407 1279 422 1293 454 1300
+      C546 1314 684 1311 769 1303
+      C799 1266 815 1223 850 1183
+      C897 1129 938 1071 958 1025
+      C975 1008 989 977 986 952
+      L963 939
+      C943 951 935 977 918 994
+      C863 1048 805 1072 745 1077
+      L468 1041 Z
+    "/>
+
+    <path id="faceShape" d="
+      M510 594
+      C473 601 453 632 436 669
+      C415 711 381 753 373 800
+      C362 860 373 943 399 998
+      C423 1045 451 1063 493 1077
+      C546 1097 596 1111 644 1124
+      C704 1119 773 1097 823 1072
+      C873 1048 909 1016 925 970
+      C939 928 936 868 925 831
+      L909 839
+      L882 832
+      C885 779 895 704 883 657
+      C875 620 850 592 824 573
+      L704 543
+      C650 554 591 594 541 594
+      C528 592 518 590 510 594 Z
+    "/>
+
+    <clipPath id="bodyClip"><use href="#bodyShape"/></clipPath>
+    <clipPath id="faceClip"><use href="#faceShape"/></clipPath>
+  </defs>
+
+  <g filter="url(#crayon)">
+    <!-- 红帽内侧与左下方露出的深绿色帽尾。 -->
+    <path class="outline" fill="#24583b" d="
+      M126 209
+      C184 227 272 268 324 309
+      L269 365 L169 354 Z
+    "/>
+
+    <path class="outline" fill="#285c3d" d="
+      M304 890
+      C261 936 202 995 156 1041
+      C217 1068 272 1110 350 1114
+      L425 1096
+      C397 1056 367 1018 356 975 Z
+    "/>
+
+    <path fill="#366445" opacity=".55" d="
+      M307 920 L185 1037
+      Q258 1083 342 1095
+      L378 1084 Q338 1018 307 920
+    "/>
+
+    <!-- 高而偏斜的红帽。 -->
+    <path class="outline" fill="#ff401c" d="
+      M129 218
+      C137 274 160 335 171 389
+      C153 456 178 536 215 590
+      C243 632 248 672 252 715
+      L281 889
+      L316 903
+      C338 832 358 773 399 720
+      C432 674 455 617 510 594
+      C559 604 632 570 695 549
+      L681 481
+      C620 474 555 483 483 503
+      C430 470 369 453 307 414
+      C251 381 189 300 129 218 Z
+    "/>
+
+    <path class="detail" stroke-width="12" d="
+      M273 767
+      C309 656 389 551 481 509
+      M366 643
+      C402 602 443 561 474 546
+      M301 854 L306 878
+    "/>
+
+    <path fill="none" stroke="#ffb663" stroke-width="3" opacity=".55"
+          stroke-linecap="round" d="
+      M164 314l14 32 M185 412l8 29 M194 478l17 39
+      M232 555l10 20 M284 663l12-20 M344 615l18-24
+      M388 586l22-15 M442 558l13-8 M515 544l17-5
+      M584 528l18-6 M629 511l10-3
+    "/>
+
+    <!-- 大蝴蝶结左翼。 -->
+    <path class="outline" fill="#ffda80" d="
+      M205 339
+      C237 350 285 328 328 311
+      C373 294 428 288 473 291
+      L465 269
+      C498 286 536 321 555 346
+      C573 368 586 407 591 446
+      L580 483
+      C548 491 517 495 482 501
+      C432 482 389 461 347 443
+      C290 418 240 382 205 339 Z
+    "/>
+
+    <path fill="#fff0a6" d="
+      M301 378
+      C358 350 414 347 466 318
+      C503 342 528 372 544 405
+      L558 463
+      C509 458 464 440 423 423
+      C378 406 333 392 301 378 Z
+    "/>
+
+    <!-- 蝴蝶结右翼。 -->
+    <path class="outline" fill="#ffd37a" d="
+      M650 409
+      C658 351 675 319 707 294
+      C752 265 814 248 863 233
+      C869 269 852 352 836 395
+      C811 413 780 423 756 444
+      C721 468 691 481 649 484
+      L635 454 Z
+    "/>
+
+    <path fill="#fff0a6" d="
+      M687 404
+      C689 362 710 329 743 314
+      L807 291
+      C827 324 813 361 799 389
+      C759 409 718 435 685 450 Z
+    "/>
+
+    <!-- 结节：棕色厚边，浅黄色中央。 -->
+    <path class="outline" fill="#755030" d="
+      M580 394
+      C590 386 606 377 617 381
+      C636 391 650 413 654 438
+      C658 457 648 476 635 483
+      L577 490
+      C561 474 563 448 566 425
+      C568 410 572 400 580 394 Z
+    "/>
+
+    <path fill="#ffe69a" d="
+      M592 395
+      L610 390
+      C626 405 634 426 636 447
+      L630 476 L585 483
+      C575 459 581 420 592 395 Z
+    "/>
+
+    <path class="detail" d="M563 389q13 8 28-2"/>
+
+    <!-- 蓝色块状饰物及上方的短弧线。 -->
+    <path class="detail" stroke-width="9" d="M809 439q28-8 38 40"/>
+
+    <!-- 黄色披风/身体是一整片，向右延伸到举杖的手。 -->
+    <use href="#bodyShape" fill="#ffcf43"/>
+
+    <g clip-path="url(#bodyClip)">
+      <path fill="#ffda59" d="
+        M369 814
+        C350 947 416 1053 497 1090
+        C651 1160 818 1098 928 1005
+        C883 1132 801 1228 762 1307
+        L420 1317 L252 1206 L418 1094 Z
+      "/>
+      <path fill="url(#pastelMarks)" d="M230 755H999V1320H230Z"/>
+    </g>
+
+    <path class="detail" stroke-width="11" d="
+      M370 777
+      C324 864 335 975 427 1101
+      C370 1114 319 1156 271 1184
+      L246 1154 L260 1205
+      C276 1230 374 1236 450 1252
+      M420 1256 L401 1281
+      M769 1303
+      C799 1266 815 1223 850 1183
+      C897 1129 938 1071 958 1025
+    "/>
+
+    <!-- 大而略扁、不规则的橘粉色脸。 -->
+    <use href="#faceShape" fill="#ff976e"/>
+
+    <g clip-path="url(#faceClip)">
+      <path fill="#ffab7d" opacity=".45" d="
+        M401 771
+        C449 691 561 655 669 661
+        C821 670 887 779 902 924
+        C848 1032 718 1089 622 1100
+        C484 1068 397 968 401 771 Z
+      "/>
+
+      <path fill="#f77555" opacity=".69" filter="url(#softBlush)" d="
+        M438 885
+        C468 849 526 851 560 883
+        C595 917 589 972 553 1004
+        C515 1036 463 1019 442 983
+        C424 950 424 913 438 885 Z
+      "/>
+
+      <path fill="#f87450" opacity=".7" filter="url(#softBlush)" d="
+        M835 862
+        C865 842 912 848 935 878
+        L939 948
+        C925 979 895 1002 863 993
+        C828 982 809 896 835 862 Z
+      "/>
+
+      <path fill="url(#pastelMarks)" d="M352 536H949V1138H352Z"/>
+    </g>
+
+    <use href="#faceShape" class="outline" fill="none"/>
+
+    <path class="outline" fill="#2165c5" d="
+      M683 487
+      L716 478
+      C751 495 809 505 845 537
+      C851 552 836 572 839 586
+      L827 615
+      C786 596 745 580 704 558
+      C691 541 690 513 683 487 Z
+    "/>
+
+    <path fill="#2a70d2" d="
+      M711 493 L742 507 L822 542
+      L831 560 L816 584
+      L723 546 Z
+    "/>
+
+    <path class="detail" d="M816 572l14 7 M657 504l28-2"/>
+
+    <!-- 额头只有一根短眉。 -->
+    <path class="detail" stroke-width="7" d="M588 625q23 20 42 22"/>
+
+    <!-- 左眼：上缘下压、形状不对称，瞳孔贴右。 -->
+    <path fill="#fffdf7" stroke="#30251f" stroke-width="8"
+          stroke-linejoin="round" d="
+      M563 726
+      C552 738 553 767 555 793
+      C557 833 573 865 591 875
+      C614 878 645 869 657 853
+      C665 829 657 783 643 754
+      C611 748 584 739 563 726 Z
+    "/>
+
+    <path fill="#352620" d="
+      M624 753
+      C610 767 606 790 608 808
+      C611 829 627 844 652 844
+      C660 827 657 785 643 756 Z
+    "/>
+
+    <path class="detail" stroke-width="8" d="
+      M547 703
+      C565 730 603 745 643 751
+    "/>
+
+    <!-- 右眼更窄、更直立。 -->
+    <path fill="#fffdf7" stroke="#30251f" stroke-width="8" d="
+      M782 698
+      C800 689 822 696 832 710
+      C844 730 850 762 850 790
+      C851 819 842 843 828 848
+      C809 852 790 831 777 808
+      C765 785 762 759 765 734
+      C766 716 772 704 782 698 Z
+    "/>
+
+    <path fill="#352620" d="
+      M834 736
+      C819 740 810 756 811 778
+      C811 800 825 818 844 822
+      C854 807 854 773 846 751 Z
+    "/>
+
+    <!-- 极小的鼻弧和嘴。 -->
+    <path class="detail" stroke-width="7" d="M716 846q17-20 40 1"/>
+    <path class="detail" stroke-width="7" d="M726 907q16-8 30 10"/>
+
+    <!-- 右侧脸沿的小折角。 -->
+    <path fill="#ffad77" stroke="#30251f" stroke-width="7"
+          stroke-linejoin="round" d="
+      M886 799 L905 817 L925 825
+      L909 840 L882 832 Z
+    "/>
+
+    <!-- 细长的棕色魔杖，位于握持的小手后方。 -->
+    <path class="outline" fill="#a76430" d="
+      M943 949
+      L980 813
+      L1013 820
+      L972 962 Z
+    "/>
+
+    <path fill="none" stroke="#e4a348" stroke-width="7"
+          stroke-linecap="round" d="M956 935L992 832"/>
+
+    <!-- 黄色的小手直接接在大片黄色身体右端。 -->
+    <path class="outline" fill="#ffd044" d="
+      M948 949
+      C961 944 975 945 987 952
+      C989 969 981 1005 966 1019
+      C951 1028 935 1015 927 1000
+      C920 984 928 960 948 949 Z
+    "/>
+
+    <!-- 帽尖的五角星。 -->
+    <path class="outline" fill="#ffd044" stroke-width="13" d="
+      M82 86
+      L120 119
+      L165 99
+      L152 155
+      L180 194
+      L129 195
+      L89 250
+      L78 199
+      L27 176
+      L74 148 Z
+    "/>
+
+    <path fill="#ffdd65" opacity=".7" d="
+      M86 109 L116 138 L148 117
+      L138 158 L162 183 L124 181
+      L95 223 L89 185 L49 175 L87 155 Z
+    "/>
+  </g>
+
+  <!-- 光晕仅限魔杖星星，不改变角色轮廓。 -->
+  <path class="wand-glow" filter="url(#starGlow)" fill="#ffd65a" d="
+    M1046 703 L1054 749 L1095 779
+    L1055 793 L1042 835 L1007 811
+    L950 803 L971 764 L961 726
+    L1007 730 Z
+  "/>
+
+  <g filter="url(#crayon)">
+    <path class="outline" fill="#ffd044" stroke-width="12" d="
+      M1046 703
+      L1054 749
+      L1095 779
+      L1055 793
+      L1042 835
+      L1007 811
+      L950 803
+      L971 764
+      L961 726
+      L1007 730 Z
+    "/>
+
+    <path fill="#ffdc58" opacity=".7" d="
+      M1037 725 L1041 756 L1071 775
+      L1042 782 L1033 813 L1008 796
+      L973 795 L985 765 L977 741
+      L1008 743 Z
+    "/>
+
+    <!-- 原图魔杖周围的短光线。 -->
+    <g fill="none" stroke-linecap="round">
+      <path stroke="#30251f" stroke-width="9" d="
+        M972 680 L953 640
+        M952 693 L935 680
+        M1080 701 L1099 682
+        M1093 720 L1110 715
+        M1080 838 L1098 857
+        M1094 818 L1112 825
+      "/>
+      <path stroke="#eebd4e" stroke-width="7" d="
+        M985 681 L975 650
+        M943 700 L921 688
+        M1077 699 L1092 680
+        M1094 724 L1107 721
+        M1081 837 L1090 854
+        M1095 817 L1109 822
+      "/>
+    </g>
+  </g>
+</svg></div>`;}
 function renderVoiceCard(p){const availability=state.voiceAvailable[p.id],interactive=availability!==false,loading=state.voiceLoading===p.id,playing=state.playing===p.id,audio=voiceAudioFor(p.id),paused=!!audio&&audio.paused&&!audio.ended&&!loading,failed=state.voiceLoadFailed.has(p.id),duration=audio&&Number.isFinite(audio.duration)?audio.duration:voiceDurationCache.get(p.id)||0,current=audio&&Number.isFinite(audio.currentTime)?audio.currentTime:0,progress=duration>0?Math.min(100,current/duration*100):0,status=availability===false?'NOT AVAILABLE':loading?'LOADING':playing?'NOW PLAYING':paused?'PAUSED':failed?'TRY AGAIN':state.heard.has(p.id)?'WITH LOVE ♡':'READY TO PLAY',playLabel=playing?'Ⅱ 暂停播放':paused?'▶ 继续播放':failed?'▶ 点击重试':state.heard.has(p.id)?'▶ 再听一次':'▶ 播放祝福';return `<article class="voice-card ${playing?'playing':''} ${paused?'paused':''} ${availability===false?'is-unavailable':''}" data-voice-card="${p.id}"${loading?' aria-busy="true"':''}>${voiceMoonScene(p.id)}<i class="voice-corner tl" aria-hidden="true"></i><i class="voice-corner tr" aria-hidden="true"></i><i class="voice-corner bl" aria-hidden="true"></i><i class="voice-corner br" aria-hidden="true"></i><div class="voice-record-wrap"><div class="voice-record">${avatar(p,'voice-portrait')}</div><span class="voice-spark" aria-hidden="true">✦</span></div><div class="voice-info"><span class="voice-status">${status}</span><strong class="voice-name">${esc(p.name)}</strong><div class="voice-wave" aria-hidden="true">${voiceWaveform(p.id)}</div><div class="voice-seek" role="progressbar" aria-label="${esc(p.name)}的播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress.toFixed(1)}" style="--voice-progress:${progress}%"><span></span></div><div class="voice-times"><span class="voice-elapsed">${formatVoiceTime(current)}</span><span class="voice-duration">${formatVoiceTime(duration)}</span></div><div class="voice-controls"><button class="voice-play-button" ${interactive?`data-voice-person="${p.id}"`:'disabled'}>${availability===false?'素材待补充':playLabel}</button><button class="voice-replay-button" aria-label="从头播放${esc(p.name)}的祝福" ${interactive?`data-voice-replay="${p.id}"`:'disabled'}>↺</button></div></div></article>`;}
 function renderVoices(){const c=chapter(state.activeVoiceChapter),visited=voiceVisitedForChapter(c),activePerson=c.people.find(p=>p.id===state.activeVoice)||null,tabs=state.data.chapters.map(x=>`<button class="voice-tab ${x.id===c.id?'active':''}" data-voice-chapter="${x.id}">VOICE 0${x.id}</button>`).join(''),stars=c.people.map((p,index)=>renderVoiceStar(p,index,c.id,visited)).join(''),popup=activePerson?`<div class="voice-popup-shell" role="dialog" aria-modal="true" aria-label="${esc(activePerson.name)}的语音祝福"><button type="button" class="voice-popup-close" data-action="close-voice-popup" aria-label="关闭语音卡">×</button>${renderVoiceCard(activePerson)}</div>`:'';return shell(`<div class="voice-page"><header class="voice-header"><div class="voice-heading"><p class="voice-eyebrow">✦ BIRTHDAY RADIO</p><h2>把祝福，留在这一刻。</h2><p>最后一关，是一些想亲口对你说的话。</p></div><nav class="voice-chapter-tabs" aria-label="语音章节">${tabs}</nav></header><section class="voice-star-field" aria-label="语音祝福星空"><span class="voice-star-specks" aria-hidden="true"></span><span class="voice-constellation" aria-hidden="true"><i></i><i></i><i></i></span>${voiceStarCompanion()}${stars}<div class="voice-popup-layer${activePerson?' is-open':''}" aria-hidden="${!activePerson}">${popup}</div></section><p class="voice-footer-note">✦ MADE OF VOICES &amp; LITTLE WISHES</p><div class="voice-ending-actions"><button class="voice-ending-button" data-action="go-ending">继续查看结尾 Demo</button></div></div>`,{back:'go-select'});}
 function stopAudio(){voiceLoadRun++;const audio=state.audio;if(audio){audio._voiceCleanup?.();audio.pause();audio.removeAttribute('src');try{audio.load();}catch(_){}}state.audio=null;state.playing=null;state.voiceLoading=null;}
