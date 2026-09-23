@@ -57,7 +57,7 @@ body{background-color:#102747;background-image:url('assets/pixel-ui/pc-backgroun
 .chapter-one-people .person-card{--frame:#b96732;--panel:#351817;border-color:var(--frame);border-radius:14px;background:radial-gradient(circle at 18% 23%,#e5a85a 0 1px,transparent 1.6px),radial-gradient(circle at 82% 31%,#f2d08a 0 1px,transparent 1.6px),radial-gradient(circle at 11% 72%,#b96732 0 1px,transparent 1.5px),linear-gradient(90deg,#24131a52,transparent 15%,transparent 86%,#24131a42),linear-gradient(155deg,#351817,#54231c 62%,#35191a);box-shadow:2px 2px 0 #180d1266;overflow:hidden}
 .chapter-one-people .person-card:before{inset:4px;clip-path:none;border:1px solid #e5a85a;border-radius:10px;box-shadow:none;background:linear-gradient(#f2d08a,#f2d08a) left top/5px 5px no-repeat,linear-gradient(#f2d08a,#f2d08a) right top/5px 5px no-repeat,linear-gradient(#f2d08a,#f2d08a) left bottom/5px 5px no-repeat,linear-gradient(#f2d08a,#f2d08a) right bottom/5px 5px no-repeat,linear-gradient(145deg,#24131a52 0 48%,transparent 50%) left bottom/25px 16px no-repeat,linear-gradient(215deg,#24131a42 0 46%,transparent 48%) right bottom/21px 13px no-repeat;opacity:.84}
 .chapter-one-people .person-card:not(.matched) .avatar-shell{box-shadow:0 0 0 1px #6b3024;margin-bottom:12px}
-.chapter-one-people .person-card:not(.matched) .avatar-img{border:2px solid #e2a85c;box-shadow:none}
+.chapter-one-people .person-card:not(.matched) .avatar-img{border:2px solid #e2c27a;box-shadow:none}
 .chapter-one-people .person-card strong{color:#f8e7c7;text-shadow:1px 1px 0 #24131a}
 .chapter-one-people .person-card.selected{border-color:#f2d08a;background-color:#401b1a;box-shadow:2px 2px 0 #180d1266}
 .chapter-one-people .person-card.matched{border-color:#eea74e;background-color:#351e32;box-shadow:inset 0 0 0 2px #633345,inset 0 0 0 3px #d49e60,0 3px 4px #130e214d}
@@ -133,15 +133,15 @@ body{background-color:#102747;background-image:url('assets/pixel-ui/pc-backgroun
  linear-gradient(#24131a4a,#24131a4a) right 6px bottom 26px/7px 6px no-repeat,
  linear-gradient(#24131a33,#24131a33) right 20px bottom 7px/13px 10px no-repeat;
 }
-.chapter-one-people .person-card.selected:not(.matched){--person-edge:#e5a85a;--person-line:#ffe1a0;border-color:transparent}
+.chapter-one-people .person-card.selected:not(.matched){--person-edge:#fff0b2;--person-line:#ffe9c8;border-color:transparent}
 @media(hover:hover){
- .chapter-one-people .person-card:not(:disabled):not(.selected):hover{--person-edge:#d9904e;--person-line:#f0c47d;border-color:transparent}
+ .chapter-one-people .person-card:not(:disabled):not(.selected):hover{--person-edge:#f1d590;--person-line:#fff0c8;border-color:transparent}
  .chapter-one-people .person-card.selected:hover{border-color:transparent}
 }
 
 /* Shared Chapter 01 palette; decoration stays outside layout and state handling. */
 .chapter-one-people .person-card:not(.matched){
- color:#F8E7C7;
+ --person-edge:#E2C27A;color:#F8E7C7;
  background:
  linear-gradient(#E8BE63,#E8BE63) left calc(15% - 1px) top calc(26% - 4px)/2px 8px no-repeat,
  linear-gradient(#E8BE63,#E8BE63) left calc(15% - 4px) top calc(26% - 1px)/8px 2px no-repeat,
@@ -149,16 +149,17 @@ body{background-color:#102747;background-image:url('assets/pixel-ui/pc-backgroun
  linear-gradient(#E8BE63b3,#E8BE63b3) 12% 69%/3px 3px no-repeat,
  conic-gradient(from 135deg at 50% 0%,#E8BE63cc 90deg,transparent 0) left calc(87% - 3px) top calc(74% - 3px)/6px 3px no-repeat,
  conic-gradient(from 315deg at 50% 100%,#E8BE63cc 90deg,transparent 0) left calc(87% - 3px) top 74%/6px 3px no-repeat,
- linear-gradient(90deg,#2D15184d,transparent 18%,transparent 82%,#2D15184d),#4A221F;
+ linear-gradient(90deg,#24192455,transparent 18%,transparent 82%,#24192455),#432733;
 }
+.chapter-one-people .person-card.selected:not(.matched){background-color:#553145}
 .chapter-one-sentences .sentence-card:not(.matched):not(.selected){
- --frame:#C9783E;--panel:#4A221F;color:#F8E7C7;
+ --frame:#E2C27A;--panel:#34232F;color:#F8E7C7;
 }
 .chapter-one-sentences .sentence-card:not(.matched):not(.selected):after{
  box-shadow:inset 0 0 0 1px #F1D08B;
 }
 @media(hover:hover){
- .chapter-one-sentences .sentence-card:not(:disabled):not(.selected):hover{--frame:#efc17c}
+ .chapter-one-sentences .sentence-card:not(:disabled):not(.selected):hover{--frame:#f5d69a}
 }
 .chapter-one-sentences .sentence-card:not(.matched):not(.selected):not(:disabled):active{--frame:#fff0ae;--panel:#e9ba68;color:#372034}
 .chapter-one-people .person-card.matched{opacity:1;cursor:default;border-color:#f2bc68;background-color:#20233f;background-image:radial-gradient(ellipse at 0% 110%,#53638b3d 0 24%,transparent 25%),radial-gradient(ellipse at 100% 115%,#69547f3b 0 30%,transparent 31%),radial-gradient(circle at 22% 17%,#e7c77d 0 1px,transparent 1.6px),linear-gradient(155deg,#171d39,#302848);box-shadow:inset 0 0 0 2px #48395e,inset 0 0 0 3px #e2a957,0 3px 4px #100d214d}
