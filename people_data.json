@@ -3,7 +3,7 @@
     {
       "id": 1,
       "key": "chapter_01",
-      "title": "一句话猜人",
+      "title": "一句话",
       "people": [
         {
           "id": "01",
@@ -57,7 +57,7 @@
     {
       "id": 2,
       "key": "chapter_02",
-      "title": "关键词猜人",
+      "title": "关键词",
       "people": [
         {
           "id": "07",
@@ -217,7 +217,7 @@
     {
       "id": 4,
       "key": "chapter_04",
-      "title": "相关图片猜人",
+      "title": "相关图片",
       "people": [
         {
           "id": "19",
