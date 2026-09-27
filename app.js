@@ -114,7 +114,7 @@ function retryVoiceAvatar(id){
   voiceAvatarSources.set(id,retryImageSource(person.avatar));voiceAvatarStatus.set(id,'loading');render();
 }
 
-function shell(content,{back=null,className=''}={}){return `<div class="shell${className?` ${className}`:''}${state.pageEntering?' page-enter':''}"><header class="topbar">${back?`<button class="back" data-action="${back}">← 返回</button>`:'<span class="brand">BIRTHDAY PROJECT</span>'}</header>${content}</div>`;}
+function shell(content,{back=null,className=''}={}){return `<div class="shell${className?` ${className}`:''}${state.pageEntering?' page-enter':''}"><header class="topbar">${back?`<button class="back" data-action="${back}">← 返回</button>`:'<span class="brand">星光来信</span>'}</header>${content}</div>`;}
 function syncAttributes(a,b){for(const x of [...a.attributes])if(!b.hasAttribute(x.name))a.removeAttribute(x.name);for(const x of [...b.attributes])if(a.getAttribute(x.name)!==x.value)a.setAttribute(x.name,x.value);if(a instanceof HTMLInputElement&&document.activeElement!==a)a.value=b.value;}
 function patchNode(a,b){if(!a||!b||a.nodeType!==b.nodeType||a.nodeName!==b.nodeName){a?.replaceWith(b.cloneNode(true));return;}if(a.nodeType===Node.TEXT_NODE){if(a.nodeValue!==b.nodeValue)a.nodeValue=b.nodeValue;return;}syncAttributes(a,b);const ac=[...a.childNodes],bc=[...b.childNodes],n=Math.min(ac.length,bc.length);for(let i=0;i<n;i++)patchNode(ac[i],bc[i]);for(let i=ac.length-1;i>=bc.length;i--)ac[i].remove();for(let i=n;i<bc.length;i++)a.appendChild(bc[i].cloneNode(true));}
 function updateScreen(markup,replace){if(replace||!app.firstElementChild){app.innerHTML=markup;return;}const t=document.createElement('template');t.innerHTML=markup.trim();patchNode(app.firstElementChild,t.content.firstElementChild);}
