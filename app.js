@@ -24,6 +24,8 @@ const MYSTERY_AVATARS=[
 ];
 const bgmAudio=new Audio();
 bgmAudio.preload='none';bgmAudio.src=encodeURI('assets/audio/bgm.m4a');bgmAudio.loop=true;bgmAudio.volume=1;
+let bgmMuted=false;
+bgmAudio.muted=bgmMuted;
 const endingAudio=new Audio();
 endingAudio.preload='auto';endingAudio.src=encodeURI('assets/audio/ending_bgm.mp3');endingAudio.loop=false;endingAudio.volume=1;
 const BGM_NORMAL_GAIN=.20,BGM_FADE_MS=360;
@@ -47,6 +49,8 @@ function avatar(p,extra=''){
 
 function loadProgress(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');state.completed=new Set(s.completed||[]);state.heard=new Set(s.heard||[]);}catch(_){}}
 function saveProgress(){localStorage.setItem(STORAGE_KEY,JSON.stringify({completed:[...state.completed],heard:[...state.heard]}));}
+function updateBgmMuteButton(){bgmMuteButton.textContent=bgmMuted?'播放▶':'静音🔕';bgmMuteButton.setAttribute('aria-label',bgmMuted?'播放背景音乐':'静音背景音乐');bgmMuteButton.setAttribute('aria-pressed',String(bgmMuted));}
+function toggleBgmMute(){bgmMuted=!bgmMuted;bgmAudio.muted=bgmMuted;updateBgmMuteButton();}
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function ensureBgmAudioGraph(){if(bgmGraphAttempted)return bgmAudioContext;bgmGraphAttempted=true;const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;try{bgmAudioContext=new Context();bgmSourceNode=bgmAudioContext.createMediaElementSource(bgmAudio);bgmGainNode=bgmAudioContext.createGain();bgmGainNode.gain.value=bgmTargetGain;bgmSourceNode.connect(bgmGainNode);bgmGainNode.connect(bgmAudioContext.destination);return bgmAudioContext;}catch(_){return null;}}
 function startBgm(){if(bgmStarted)return;bgmStarted=true;const context=ensureBgmAudioGraph();if(context&&context.state!=='running'){const resumed=context.resume();if(resumed?.catch)resumed.catch(()=>{});}const playback=bgmAudio.play();if(playback?.catch)playback.catch(()=>{});}
@@ -118,7 +122,7 @@ function shell(content,{back=null,className=''}={}){return `<div class="shell${c
 function syncAttributes(a,b){for(const x of [...a.attributes])if(!b.hasAttribute(x.name))a.removeAttribute(x.name);for(const x of [...b.attributes])if(a.getAttribute(x.name)!==x.value)a.setAttribute(x.name,x.value);if(a instanceof HTMLInputElement&&document.activeElement!==a)a.value=b.value;}
 function patchNode(a,b){if(!a||!b||a.nodeType!==b.nodeType||a.nodeName!==b.nodeName){a?.replaceWith(b.cloneNode(true));return;}if(a.nodeType===Node.TEXT_NODE){if(a.nodeValue!==b.nodeValue)a.nodeValue=b.nodeValue;return;}syncAttributes(a,b);const ac=[...a.childNodes],bc=[...b.childNodes],n=Math.min(ac.length,bc.length);for(let i=0;i<n;i++)patchNode(ac[i],bc[i]);for(let i=ac.length-1;i>=bc.length;i--)ac[i].remove();for(let i=n;i<bc.length;i++)a.appendChild(bc[i].cloneNode(true));}
 function updateScreen(markup,replace){if(replace||!app.firstElementChild){app.innerHTML=markup;return;}const t=document.createElement('template');t.innerHTML=markup.trim();patchNode(app.firstElementChild,t.content.firstElementChild);}
-function render(){const screens={start:renderStart,select:renderSelect,game:renderGame,messages:renderMessages,voices:renderVoices,ending:renderEnding},changed=state.screen!==state.renderedScreen;state.pageEntering=changed;updateScreen(screens[state.screen](),changed);state.renderedScreen=state.screen;if(changed&&state.screen==='select')queueParticipantAvatarPreload();if(changed&&state.screen==='voices'){if(state.voiceIntroActive)queueVoiceFrame(startVoiceIntro);}if(state.screen==='game'&&state.game.chapterId===3)requestAnimationFrame(()=>{const image=document.querySelector('.riddle-image');if(image?.complete&&image.naturalWidth)markRiddleImageReady(image);});}
+function render(){const screens={start:renderStart,select:renderSelect,game:renderGame,messages:renderMessages,voices:renderVoices,ending:renderEnding},changed=state.screen!==state.renderedScreen;state.pageEntering=changed;updateScreen(screens[state.screen](),changed);bgmMuteButton.hidden=!['select','game','messages'].includes(state.screen);state.renderedScreen=state.screen;if(changed&&state.screen==='select')queueParticipantAvatarPreload();if(changed&&state.screen==='voices'){if(state.voiceIntroActive)queueVoiceFrame(startVoiceIntro);}if(state.screen==='game'&&state.game.chapterId===3)requestAnimationFrame(()=>{const image=document.querySelector('.riddle-image');if(image?.complete&&image.naturalWidth)markRiddleImageReady(image);});}
 function stopEndingAudio(){endingAudio.pause();endingAudio.currentTime=0;}
 function startEndingAudio(){stopEndingAudio();const playback=endingAudio.play();if(playback?.catch)playback.catch(()=>{});}
 function clearEnding(){endingRun++;endingTimers.forEach(clearTimeout);endingTimers=[];document.querySelectorAll('.ending-avatar').forEach(n=>n.getAnimations().forEach(a=>a.cancel()));window.EndingFireworks?.stop();stopEndingAudio();}
@@ -323,4 +327,7 @@ app.addEventListener('keydown',keyVoiceSeek);
 app.addEventListener('keydown',e=>{if(e.key==='Escape'&&state.screen==='voices'&&state.activeVoice){closeVoicePopup();return;}if(e.key==='Enter'&&state.screen==='game'&&state.game.chapterId===3&&document.activeElement.id==='answer'){clearFeedback();submitAnswer();}});
 let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(state.screen==='ending')layoutEnding();},180);});
 async function init(){try{const r=await fetch('people_data.json');if(!r.ok)throw new Error('无法读取人物数据');state.data=await r.json();if(!Array.isArray(state.data.chapters)||state.data.chapters.length!==4)throw new Error('人物数据格式不正确');loadProgress();render();}catch(error){app.innerHTML=`<div class="error"><div><h2>游戏暂时无法启动</h2><p>${esc(error.message)}</p><p>页面加载失败，请刷新后重试。</p></div></div>`;}}
+const bgmMuteButton=document.createElement('button');
+bgmMuteButton.type='button';bgmMuteButton.className='bgm-mute-toggle';bgmMuteButton.hidden=true;bgmMuteButton.addEventListener('click',toggleBgmMute);
+updateBgmMuteButton();document.body.appendChild(bgmMuteButton);
 app.innerHTML='<div class="loading">正在准备生日线索…</div>';init();
