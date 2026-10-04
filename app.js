@@ -29,7 +29,7 @@ bgmAudio.muted=bgmMuted;
 const endingAudio=new Audio();
 endingAudio.preload='auto';endingAudio.src=encodeURI('assets/audio/ending_bgm.mp3');endingAudio.loop=false;endingAudio.volume=1;
 const BGM_NORMAL_GAIN=.20,BGM_FADE_MS=360;
-let bgmStarted=false,bgmGraphAttempted=false,bgmAudioContext=null,bgmSourceNode=null,bgmGainNode=null,bgmTargetGain=BGM_NORMAL_GAIN,bgmPauseTimer=null;
+let bgmStarted=false,bgmGraphAttempted=false,bgmAudioContext=null,bgmSourceNode=null,bgmGainNode=null,bgmMuteGainNode=null,bgmTargetGain=BGM_NORMAL_GAIN,bgmPauseTimer=null;
 
 const allPeople=()=>state.data.chapters.flatMap(c=>c.people);
 const chapter=id=>state.data.chapters.find(c=>c.id===id);
@@ -50,9 +50,10 @@ function avatar(p,extra=''){
 function loadProgress(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');state.completed=new Set(s.completed||[]);state.heard=new Set(s.heard||[]);}catch(_){}}
 function saveProgress(){localStorage.setItem(STORAGE_KEY,JSON.stringify({completed:[...state.completed],heard:[...state.heard]}));}
 function updateBgmMuteButton(){bgmMuteButton.textContent=bgmMuted?'播放▶':'静音🔕';bgmMuteButton.setAttribute('aria-label',bgmMuted?'播放背景音乐':'静音背景音乐');bgmMuteButton.setAttribute('aria-pressed',String(bgmMuted));}
-function toggleBgmMute(){bgmMuted=!bgmMuted;bgmAudio.muted=bgmMuted;updateBgmMuteButton();}
+function applyBgmMuteState(){bgmAudio.muted=bgmMuted;if(bgmMuteGainNode)bgmMuteGainNode.gain.value=bgmMuted?0:1;}
+function toggleBgmMute(){bgmMuted=!bgmMuted;applyBgmMuteState();updateBgmMuteButton();}
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-function ensureBgmAudioGraph(){if(bgmGraphAttempted)return bgmAudioContext;bgmGraphAttempted=true;const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;try{bgmAudioContext=new Context();bgmSourceNode=bgmAudioContext.createMediaElementSource(bgmAudio);bgmGainNode=bgmAudioContext.createGain();bgmGainNode.gain.value=bgmTargetGain;bgmSourceNode.connect(bgmGainNode);bgmGainNode.connect(bgmAudioContext.destination);return bgmAudioContext;}catch(_){return null;}}
+function ensureBgmAudioGraph(){if(bgmGraphAttempted)return bgmAudioContext;bgmGraphAttempted=true;const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;try{bgmAudioContext=new Context();bgmSourceNode=bgmAudioContext.createMediaElementSource(bgmAudio);bgmGainNode=bgmAudioContext.createGain();bgmGainNode.gain.value=bgmTargetGain;bgmMuteGainNode=bgmAudioContext.createGain();bgmMuteGainNode.gain.value=bgmMuted?0:1;bgmSourceNode.connect(bgmGainNode);bgmGainNode.connect(bgmMuteGainNode);bgmMuteGainNode.connect(bgmAudioContext.destination);return bgmAudioContext;}catch(_){return null;}}
 function startBgm(){if(bgmStarted)return;bgmStarted=true;const context=ensureBgmAudioGraph();if(context&&context.state!=='running'){const resumed=context.resume();if(resumed?.catch)resumed.catch(()=>{});}const playback=bgmAudio.play();if(playback?.catch)playback.catch(()=>{});}
 function transitionBgmGain(target){const unchanged=Math.abs(bgmTargetGain-target)<.001;bgmTargetGain=target;if(!bgmAudioContext||!bgmGainNode||unchanged)return;const gain=bgmGainNode.gain,now=bgmAudioContext.currentTime;if(typeof gain.cancelAndHoldAtTime==='function')gain.cancelAndHoldAtTime(now);else{const current=gain.value;gain.cancelScheduledValues(now);gain.setValueAtTime(current,now);}gain.linearRampToValueAtTime(target,now+BGM_FADE_MS/1000);}
 function fadeOutBgmForVoice(){clearTimeout(bgmPauseTimer);transitionBgmGain(0);bgmPauseTimer=setTimeout(()=>{bgmPauseTimer=null;if(state.screen==='voices'||state.screen==='ending')bgmAudio.pause();},BGM_FADE_MS);}
