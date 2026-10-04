@@ -1,0 +1,51 @@
+{
+  "name": "starlight-letters-windows",
+  "productName": "星光来信",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win nsis --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.starlightletters.game",
+    "productName": "星光来信",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "asar": false,
+    "files": [
+      "index.html",
+      "app.js",
+      "styles.css",
+      "pixel-ui.css",
+      "fireworks.js",
+      "people_data.json",
+      "ending-avatar-sprite.webp",
+      "xiaomi-chibi-1000.webp",
+      "assets/**/*",
+      "01_Person Materials/**/*",
+      "electron/main.js",
+      "build/icon.ico"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "build/icon.ico",
+      "executableName": "这是一个小游戏"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "这是一个小游戏",
+      "artifactName": "星光来信 Setup.${ext}"
+    }
+  }
+}
