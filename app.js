@@ -23,7 +23,7 @@ const MYSTERY_AVATARS=[
 `<svg class="c4-mystery-pixel" viewBox="0 0 24 24" aria-hidden="true" shape-rendering="crispEdges"><rect width="24" height="24" fill="#2d3d67"/><rect x="6" y="5" width="12" height="12" fill="#24131a"/><rect x="7" y="7" width="10" height="9" fill="#aa6e55"/><path fill="#d6c4a0" d="M6 5h2V3h8v2h3v5h-3V8h-2V7h-3v2H8v2H5V7h1zM5 11h3v5H6zM16 10h3v6h-2z"/><rect x="8" y="11" width="2" height="2" fill="#251d27"/><rect x="14" y="11" width="2" height="2" fill="#251d27"/><rect x="10" y="14" width="4" height="1" fill="#723b3b"/><rect x="9" y="16" width="6" height="2" fill="#aa6e55"/><path fill="#4d5f9a" d="M5 19h14v5H5zM7 17h10v3H7z"/><rect x="11" y="18" width="2" height="5" fill="#f2d08a"/></svg>`
 ];
 const bgmAudio=new Audio();
-bgmAudio.preload='none';bgmAudio.src=encodeURI('assets/audio/bgm.m4a');bgmAudio.loop=true;bgmAudio.volume=1;
+bgmAudio.preload='none';bgmAudio.src=encodeURI('assets/audio/bgm.mp3');bgmAudio.loop=true;bgmAudio.volume=1;
 let bgmMuted=false;
 bgmAudio.muted=bgmMuted;
 const endingAudio=new Audio();
