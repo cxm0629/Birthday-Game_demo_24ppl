@@ -23,13 +23,13 @@ const MYSTERY_AVATARS=[
 `<svg class="c4-mystery-pixel" viewBox="0 0 24 24" aria-hidden="true" shape-rendering="crispEdges"><rect width="24" height="24" fill="#2d3d67"/><rect x="6" y="5" width="12" height="12" fill="#24131a"/><rect x="7" y="7" width="10" height="9" fill="#aa6e55"/><path fill="#d6c4a0" d="M6 5h2V3h8v2h3v5h-3V8h-2V7h-3v2H8v2H5V7h1zM5 11h3v5H6zM16 10h3v6h-2z"/><rect x="8" y="11" width="2" height="2" fill="#251d27"/><rect x="14" y="11" width="2" height="2" fill="#251d27"/><rect x="10" y="14" width="4" height="1" fill="#723b3b"/><rect x="9" y="16" width="6" height="2" fill="#aa6e55"/><path fill="#4d5f9a" d="M5 19h14v5H5zM7 17h10v3H7z"/><rect x="11" y="18" width="2" height="5" fill="#f2d08a"/></svg>`
 ];
 const bgmAudio=new Audio();
-bgmAudio.preload='none';bgmAudio.src=encodeURI('assets/audio/bgm.m4a');bgmAudio.loop=true;bgmAudio.volume=1;
+bgmAudio.preload='none';bgmAudio.src=encodeURI('assets/audio/bgm.mp3');bgmAudio.loop=true;bgmAudio.volume=1;
 let bgmMuted=false;
 bgmAudio.muted=bgmMuted;
 const endingAudio=new Audio();
 endingAudio.preload='auto';endingAudio.src=encodeURI('assets/audio/ending_bgm.mp3');endingAudio.loop=false;endingAudio.volume=1;
 const BGM_NORMAL_GAIN=.20,BGM_FADE_MS=360;
-let bgmStarted=false,bgmGraphAttempted=false,bgmAudioContext=null,bgmSourceNode=null,bgmGainNode=null,bgmTargetGain=BGM_NORMAL_GAIN,bgmPauseTimer=null;
+let bgmStarted=false,bgmGraphAttempted=false,bgmAudioContext=null,bgmSourceNode=null,bgmGainNode=null,bgmMuteGainNode=null,bgmTargetGain=BGM_NORMAL_GAIN,bgmPauseTimer=null;
 
 const allPeople=()=>state.data.chapters.flatMap(c=>c.people);
 const chapter=id=>state.data.chapters.find(c=>c.id===id);
@@ -50,9 +50,10 @@ function avatar(p,extra=''){
 function loadProgress(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');state.completed=new Set(s.completed||[]);state.heard=new Set(s.heard||[]);}catch(_){}}
 function saveProgress(){localStorage.setItem(STORAGE_KEY,JSON.stringify({completed:[...state.completed],heard:[...state.heard]}));}
 function updateBgmMuteButton(){bgmMuteButton.textContent=bgmMuted?'播放▶':'静音🔕';bgmMuteButton.setAttribute('aria-label',bgmMuted?'播放背景音乐':'静音背景音乐');bgmMuteButton.setAttribute('aria-pressed',String(bgmMuted));}
-function toggleBgmMute(){bgmMuted=!bgmMuted;bgmAudio.muted=bgmMuted;updateBgmMuteButton();}
+function applyBgmMuteState(){bgmAudio.muted=bgmMuted;if(bgmMuteGainNode)bgmMuteGainNode.gain.value=bgmMuted?0:1;}
+function toggleBgmMute(){bgmMuted=!bgmMuted;applyBgmMuteState();updateBgmMuteButton();}
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-function ensureBgmAudioGraph(){if(bgmGraphAttempted)return bgmAudioContext;bgmGraphAttempted=true;const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;try{bgmAudioContext=new Context();bgmSourceNode=bgmAudioContext.createMediaElementSource(bgmAudio);bgmGainNode=bgmAudioContext.createGain();bgmGainNode.gain.value=bgmTargetGain;bgmSourceNode.connect(bgmGainNode);bgmGainNode.connect(bgmAudioContext.destination);return bgmAudioContext;}catch(_){return null;}}
+function ensureBgmAudioGraph(){if(bgmGraphAttempted)return bgmAudioContext;bgmGraphAttempted=true;const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;try{bgmAudioContext=new Context();bgmSourceNode=bgmAudioContext.createMediaElementSource(bgmAudio);bgmGainNode=bgmAudioContext.createGain();bgmGainNode.gain.value=bgmTargetGain;bgmMuteGainNode=bgmAudioContext.createGain();bgmMuteGainNode.gain.value=bgmMuted?0:1;bgmSourceNode.connect(bgmGainNode);bgmGainNode.connect(bgmMuteGainNode);bgmMuteGainNode.connect(bgmAudioContext.destination);return bgmAudioContext;}catch(_){return null;}}
 function startBgm(){if(bgmStarted)return;bgmStarted=true;const context=ensureBgmAudioGraph();if(context&&context.state!=='running'){const resumed=context.resume();if(resumed?.catch)resumed.catch(()=>{});}const playback=bgmAudio.play();if(playback?.catch)playback.catch(()=>{});}
 function transitionBgmGain(target){const unchanged=Math.abs(bgmTargetGain-target)<.001;bgmTargetGain=target;if(!bgmAudioContext||!bgmGainNode||unchanged)return;const gain=bgmGainNode.gain,now=bgmAudioContext.currentTime;if(typeof gain.cancelAndHoldAtTime==='function')gain.cancelAndHoldAtTime(now);else{const current=gain.value;gain.cancelScheduledValues(now);gain.setValueAtTime(current,now);}gain.linearRampToValueAtTime(target,now+BGM_FADE_MS/1000);}
 function fadeOutBgmForVoice(){clearTimeout(bgmPauseTimer);transitionBgmGain(0);bgmPauseTimer=setTimeout(()=>{bgmPauseTimer=null;if(state.screen==='voices'||state.screen==='ending')bgmAudio.pause();},BGM_FADE_MS);}
