@@ -84,6 +84,14 @@ function createWindow() {
   window.webContents.on('will-navigate', (event, url) => {
     if (url !== APP_URL) event.preventDefault();
   });
+  window.webContents.on('did-finish-load', async () => {
+    try {
+      const css = await fs.readFile(path.join(app.getAppPath(), 'electron', 'desktop-layout.css'), 'utf8');
+      await window.webContents.insertCSS(css);
+    } catch (error) {
+      console.error('Unable to load Electron desktop layout:', error);
+    }
+  });
   window.loadURL(APP_URL);
 }
 

@@ -32,6 +32,7 @@
       "assets/**/*",
       "01_Person Materials/**/*",
       "electron/main.js",
+      "electron/desktop-layout.css",
       "build/icon.ico"
     ],
     "win": {

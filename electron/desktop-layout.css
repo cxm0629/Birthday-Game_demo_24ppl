@@ -1,0 +1,21 @@
+/* Desktop-only spacing. Keep the top bar and fixed BGM control in place. */
+@media (min-width: 900px) and (min-height: 760px) {
+  .shell:has(> .chapter-grid):not(:has(> .finale-entry)) > .section-head {
+    margin-top: calc(16px + clamp(35px, 4.5vh, 48px));
+  }
+
+  .shell:has(> .message-grid.message-six) > .message-heading {
+    margin-top: clamp(40px, 5vh, 52px);
+  }
+
+  .game-shell.chapter-04-page > .c4-game-header {
+    margin-top: calc(34px + clamp(35px, 4.5vh, 48px));
+  }
+}
+
+/* The finale entry already fills a 1280 × 800 viewport; move it only when space permits. */
+@media (min-width: 900px) and (min-height: 850px) {
+  .shell:has(> .chapter-grid):has(> .finale-entry) > .section-head {
+    margin-top: calc(16px + clamp(35px, 4.5vh, 45px));
+  }
+}
